@@ -111,6 +111,14 @@ img {
   max-width: 620px;
 }
 
+.hero p,
+.intro p,
+.service-card p,
+.why p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .hero-actions {
   display: flex;
   gap: 16px;
@@ -439,6 +447,12 @@ img {
 }
 
 @media (max-width: 560px) {
+  .hero p,
+  .intro p,
+  .service-card p,
+  .why p {
+    text-align: left;
+  }
   .header {
     padding: 14px 5%;
   }
