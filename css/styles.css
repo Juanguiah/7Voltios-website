@@ -549,7 +549,10 @@ img {
   .hero {
   padding: 46px 5%;
   min-height: auto;
-  background-position: 74% center;
+
+  background-size: 180%;
+  background-position: 75% center;
+  background-repeat: no-repeat;
 }
 
   .hero-card{
