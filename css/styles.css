@@ -551,6 +551,22 @@ img {
     min-height: auto;
   }
 
+  .hero-card{
+    padding:18px;
+  }
+
+  .kpi {
+  padding: 12px;
+}
+
+.kpi strong {
+  font-size: 18px;
+}
+
+.kpi small {
+  font-size: 10px;
+}
+
   .hero p {
     font-size: 16px;
   }
@@ -560,8 +576,8 @@ img {
     text-align: center;
   }
 
-  .kpi-grid {
-    grid-template-columns: 1fr;
+  .kpi-grid{
+    grid-template-columns: repeat(2,1fr);
   }
 
   .service-card::before {
