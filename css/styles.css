@@ -547,12 +547,17 @@ img {
   }
 
   .hero {
-    padding: 46px 5%;
-    min-height: auto;
-  }
+  padding: 46px 5%;
+  min-height: auto;
+  background-position: 74% center;
+}
 
   .hero-card{
     padding:18px;
+  }
+
+  .hero p {
+    font-size: 16px;
   }
 
   .kpi {
@@ -566,10 +571,6 @@ img {
 .kpi small {
   font-size: 10px;
 }
-
-  .hero p {
-    font-size: 16px;
-  }
 
   .btn {
     width: 100%;
