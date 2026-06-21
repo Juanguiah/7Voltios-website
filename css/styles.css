@@ -877,8 +877,12 @@ img {
     height: 150px;
   }
 
-  .hero-card{
-    padding:18px;
+  .hero-card {
+    width: 100%;
+    max-width: 320px;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 16px;
   }
 
   .hero p {
@@ -886,12 +890,12 @@ img {
   }
 
   .kpi {
-  padding: 12px;
-}
+    padding: 10px;
+  }
 
-.kpi strong {
-  font-size: 18px;
-}
+  .kpi strong {
+    font-size: 17px;
+  }
 
 .kpi small {
   font-size: 10px;
