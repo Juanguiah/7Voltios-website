@@ -87,9 +87,10 @@ function animateKpiValue(kpi) {
 }
 
 function updateDashboard(showProposed) {
-  dashboardStatus.textContent = showProposed
-    ? "Escenario optimizado"
-    : "Estado actual";
+  dashboardStatus.setAttribute(
+    "aria-label",
+    showProposed ? "Escenario optimizado" : "Estado actual"
+  );
   dashboardStatus.classList.toggle("is-proposed", showProposed);
 
   kpis.forEach((kpi) => {
