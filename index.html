@@ -47,7 +47,7 @@
     </nav>
 
     <a class="header-btn" href="https://wa.me/573003007000" target="_blank">
-      WhatsApp
+      Escríbenos por WhatsApp
     </a>
   </header>
 
@@ -77,39 +77,73 @@
       </div>
 
       <div class="hero-card">
-        <h3>Indicadores clave</h3>
+        <div class="dashboard-heading">
+          <h3>Ejemplo de diagnóstico</h3>
+          <span class="dashboard-status" aria-live="polite">Estado actual</span>
+        </div>
 
         <div class="kpi-grid">
-          <div class="kpi">
+          <div class="kpi kpi-alert kpi-risk" data-current="Medio" data-proposed="Bajo">
             <small>Riesgo eléctrico</small>
             <strong>Medio</strong>
           </div>
 
-          <div class="kpi">
-            <small>Capacidad disponible</small>
-            <strong>38%</strong>
-          </div>
-
-          <div class="kpi">
+          <div class="kpi kpi-alert" data-current="Sin definir" data-proposed="8 cargadores" data-value="8" data-suffix=" cargadores" data-duration="900">
             <small>Capacidad EV</small>
-            <strong>8 cargadores</strong>
+            <strong>Sin definir</strong>
           </div>
 
-          <div class="kpi">
-            <small>Potencial solar</small>
-            <strong>170 kWp</strong>
+          <div class="kpi kpi-alert" data-current="Sin evaluar" data-proposed="170 kWp" data-value="170" data-suffix=" kWp" data-duration="1600">
+            <small>Potencia solar disponible</small>
+            <strong>Sin evaluar</strong>
           </div>
 
-          <div class="kpi">
-            <small>TIR estimada</small>
-            <strong>27%</strong>
+          <div class="kpi kpi-alert kpi-danger" data-current="No cumple" data-proposed="Cumpliendo">
+            <small>Cumplimiento normativo</small>
+            <strong>No cumple</strong>
           </div>
 
-          <div class="kpi">
+          <div class="kpi kpi-alert" data-current="Pendiente" data-proposed="Evaluada">
+            <small>Viabilidad</small>
+            <strong>Pendiente</strong>
+          </div>
+
+          <div class="kpi kpi-alert" data-current="--" data-proposed="3.7 años" data-value="3.7" data-suffix=" años" data-decimals="1" data-duration="2200">
             <small>Payback</small>
-            <strong>3.7 años</strong>
+            <strong>--</strong>
           </div>
         </div>
+
+        <p class="dashboard-note">Escenario ilustrativo. Los resultados dependen de las condiciones de cada proyecto.</p>
+      </div>
+
+      <div class="energy-flow" aria-hidden="true">
+        <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="energy-line" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#3fd6d0" stop-opacity="0" />
+              <stop offset="30%" stop-color="#3fd6d0" stop-opacity="0.4" />
+              <stop offset="72%" stop-color="#3fd6d0" stop-opacity="0.85" />
+              <stop offset="100%" stop-color="#3fd6d0" stop-opacity="0" />
+            </linearGradient>
+            <filter id="electron-glow" x="-300%" y="-300%" width="700%" height="700%">
+              <feGaussianBlur stdDeviation="9" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <path class="energy-line energy-line-1" d="M-40 150 C170 65 350 220 585 135 S1010 72 1480 150" />
+          <path class="energy-line energy-line-2" d="M-40 172 C185 88 365 242 605 158 S1030 96 1480 173" />
+          <path class="energy-line energy-line-3" d="M-40 195 C200 112 390 260 630 183 S1060 123 1480 198" />
+          <path class="energy-line energy-line-4" d="M-40 125 C160 40 330 195 560 110 S980 45 1480 126" />
+
+          <circle class="energy-electron" r="6" filter="url(#electron-glow)">
+            <animateMotion dur="7s" repeatCount="indefinite" path="M-40 150 C170 65 350 220 585 135 S1010 72 1480 150" />
+          </circle>
+        </svg>
       </div>
     </section>
 
@@ -203,12 +237,12 @@
 
       <div class="why-grid">
   <div class="why-item">
-    <i data-lucide="settings"></i>
+    <i data-lucide="cog"></i>
     <p>Ingeniería<br>especializada</p>
   </div>
 
   <div class="why-item">
-    <i data-lucide="trending-up"></i>
+    <i data-lucide="chart-no-axes-combined"></i>
     <p>Visión técnica<br>y financiera</p>
   </div>
 
@@ -223,10 +257,43 @@
   </div>
 
   <div class="why-item">
+    <i data-lucide="target"></i>
+    <p>Enfoque en<br>resultados</p>
+  </div>
+
+  <div class="why-item">
     <i data-lucide="users"></i>
     <p>Acompañamiento<br>estratégico</p>
   </div>
 </div>
+
+      <div class="energy-flow-secondary" aria-hidden="true">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="energy-line-secondary" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#3fd6d0" stop-opacity="0" />
+              <stop offset="25%" stop-color="#3fd6d0" stop-opacity="0.32" />
+              <stop offset="70%" stop-color="#3fd6d0" stop-opacity="0.65" />
+              <stop offset="100%" stop-color="#3fd6d0" stop-opacity="0" />
+            </linearGradient>
+            <filter id="electron-glow-secondary" x="-300%" y="-300%" width="700%" height="700%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <path class="energy-line-secondary" d="M-30 110 C210 35 390 165 620 100 S1050 48 1470 112" />
+          <path class="energy-line-secondary energy-line-secondary-muted" d="M-30 137 C225 65 415 188 650 126 S1080 78 1470 140" />
+          <path class="energy-line-secondary energy-line-secondary-muted" d="M-30 82 C190 12 365 140 590 72 S1015 20 1470 84" />
+
+          <circle class="energy-electron" r="5" filter="url(#electron-glow-secondary)">
+            <animateMotion dur="9s" repeatCount="indefinite" path="M-30 110 C210 35 390 165 620 100 S1050 48 1470 112" />
+          </circle>
+        </svg>
+      </div>
     </section>
 
     <section class="contact" id="contacto">
