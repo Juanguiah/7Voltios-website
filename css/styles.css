@@ -236,8 +236,9 @@ img {
 }
 
 .btn-primary {
-  background: var(--teal);
-  color: var(--blue-dark);
+  background: transparent;
+  border: 1px solid var(--teal);
+  color: var(--white);
 }
 
 .btn-secondary {
@@ -552,7 +553,7 @@ img {
   right: 0;
   top: 0;
   height: 145px;
-  opacity: 0.5;
+  opacity: 0.8;
   pointer-events: none;
 }
 
@@ -570,7 +571,7 @@ img {
 }
 
 .energy-line-secondary-muted {
-  opacity: 0.42;
+  opacity: 0.58;
 }
 
 .energy-flow-tertiary {
@@ -580,7 +581,7 @@ img {
   right: 0;
   bottom: -28px;
   height: 145px;
-  opacity: 0.38;
+  opacity: 0.8;
   pointer-events: none;
 }
 
@@ -598,7 +599,7 @@ img {
 }
 
 .energy-line-tertiary-muted {
-  opacity: 0.38;
+  opacity: 0.58;
 }
 
 .why h2 {
@@ -835,6 +836,14 @@ img {
     flex-direction: column;
     text-align: center;
   }
+
+  .footer p {
+    display: block;
+    width: 100%;
+    color: #b8c9d8;
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 
 /* CELULAR */
@@ -860,8 +869,13 @@ img {
   min-height: auto;
 
   background-size: cover, 180%;
-  background-position: center, 92% center;
+  background-position: center, 92% 16%;
 }
+
+  .energy-flow {
+    bottom: 360px;
+    height: 150px;
+  }
 
   .hero-card{
     padding:18px;

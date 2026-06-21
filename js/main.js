@@ -26,8 +26,7 @@ const revealGroups = [
   ".service-card",
   ".why > div:first-child",
   ".why-item",
-  ".contact > div",
-  ".footer > *"
+  ".contact > div"
 ];
 
 const revealElements = revealGroups.flatMap((selector) =>
