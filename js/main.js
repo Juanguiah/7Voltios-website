@@ -88,7 +88,7 @@ function animateKpiValue(kpi) {
 
 function updateDashboard(showProposed) {
   dashboardStatus.textContent = showProposed
-    ? "Escenario propuesto"
+    ? "Escenario optimizado"
     : "Estado actual";
   dashboardStatus.classList.toggle("is-proposed", showProposed);
 

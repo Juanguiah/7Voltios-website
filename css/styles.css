@@ -798,8 +798,8 @@ img {
   .hero-card {
     max-width: 380px;
     margin: 0 auto;
-    background: rgba(3, 19, 38, 0.52);
-    backdrop-filter: blur(6px);
+    background: rgba(3, 19, 38, 0.32);
+    backdrop-filter: none;
     transform: none;
   }
 
@@ -869,7 +869,7 @@ img {
   min-height: auto;
 
   background-size: cover, 180%;
-  background-position: center, 92% 16%;
+  background-position: center, 92% 72%;
 }
 
   .energy-flow {
