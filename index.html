@@ -294,6 +294,34 @@
           </circle>
         </svg>
       </div>
+
+      <div class="energy-flow-tertiary" aria-hidden="true">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="energy-line-tertiary" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#3fd6d0" stop-opacity="0" />
+              <stop offset="28%" stop-color="#3fd6d0" stop-opacity="0.26" />
+              <stop offset="72%" stop-color="#3fd6d0" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#3fd6d0" stop-opacity="0" />
+            </linearGradient>
+            <filter id="electron-glow-tertiary" x="-300%" y="-300%" width="700%" height="700%">
+              <feGaussianBlur stdDeviation="7" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <path class="energy-line-tertiary" d="M-30 105 C205 32 390 160 620 96 S1050 44 1470 108" />
+          <path class="energy-line-tertiary energy-line-tertiary-muted" d="M-30 132 C220 62 410 184 648 122 S1080 74 1470 136" />
+          <path class="energy-line-tertiary energy-line-tertiary-muted" d="M-30 78 C185 8 360 136 588 68 S1015 16 1470 80" />
+
+          <circle class="energy-electron" r="4.5" filter="url(#electron-glow-tertiary)">
+            <animateMotion dur="10s" repeatCount="indefinite" path="M-30 105 C205 32 390 160 620 96 S1050 44 1470 108" />
+          </circle>
+        </svg>
+      </div>
     </section>
 
     <section class="contact" id="contacto">
