@@ -549,6 +549,53 @@ img {
   line-height: 1.5;
 }
 
+.service-card li::marker {
+  font-size: 1.15em;
+  font-weight: 900;
+}
+
+.service-card.consultoria > ul > li::marker {
+  color: var(--teal);
+}
+
+.service-card.disenos > ul > li::marker {
+  color: #082b63;
+}
+
+.service-card.proyectos > ul > li::marker {
+  color: var(--green);
+}
+
+.service-card li ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  padding-bottom: 0;
+}
+
+.service-card li li::marker {
+  content: "";
+}
+
+.service-card li li {
+  list-style: none;
+  position: relative;
+}
+
+.service-card li li::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 0.72em;
+  width: 9px;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 999px;
+}
+
+.service-card li li:last-child {
+  margin-bottom: 0;
+}
+
 .why {
   position: relative;
   overflow: hidden;
