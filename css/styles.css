@@ -164,6 +164,7 @@ img {
 .header-btn:focus-visible,
 .btn:focus-visible,
 .contact-buttons a:focus-visible,
+.footer-portal:focus-visible,
 .menu-toggle:focus-visible {
   outline: 2px solid #76fff7;
   outline-offset: 4px;
@@ -906,6 +907,77 @@ img {
   width: 190px;
 }
 
+.footer-portal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid rgba(63, 214, 208, 0.24);
+  border-radius: 999px;
+  background: rgba(63, 214, 208, 0.035);
+  color: var(--white);
+  text-decoration: none;
+  line-height: 1;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-portal > svg:first-child {
+  width: 15px;
+  height: 15px;
+  color: var(--teal);
+  stroke-width: 1.8;
+}
+
+.footer-portal-copy {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.footer-portal strong {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.15px;
+}
+
+.footer-portal-separator {
+  color: rgba(63, 214, 208, 0.52);
+}
+
+.footer-portal-meta {
+  color: #9fb0c0;
+  font-size: 12px;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.footer-portal-external {
+  width: 13px;
+  height: 13px;
+  color: var(--teal);
+  opacity: 0.58;
+  stroke-width: 1.8;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.footer-portal:hover {
+  transform: translateY(-2px);
+  border-color: rgba(118, 255, 247, 0.58);
+  background: rgba(63, 214, 208, 0.08);
+  box-shadow: 0 8px 22px rgba(63, 214, 208, 0.08);
+}
+
+.footer-portal:hover .footer-portal-meta {
+  color: #c5d3df;
+}
+
+.footer-portal:hover .footer-portal-external {
+  transform: translate(1px, -1px);
+  opacity: 0.9;
+}
+
 .footer p {
   color: #9fb0c0;
   font-size: 14px;
@@ -1184,5 +1256,16 @@ img {
 
   .service-card:hover {
     translate: none;
+  }
+
+  .footer-portal,
+  .footer-portal-meta,
+  .footer-portal-external {
+    transition: none;
+  }
+
+  .footer-portal:hover,
+  .footer-portal:hover .footer-portal-external {
+    transform: none;
   }
 }
