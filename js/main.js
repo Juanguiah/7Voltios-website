@@ -23,8 +23,28 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+document.addEventListener("pointerdown", (event) => {
+  if (
+    nav.classList.contains("active") &&
+    !nav.contains(event.target) &&
+    !menuToggle.contains(event.target)
+  ) {
+    setMobileMenu(false);
+  }
+});
+
+const desktopNavigation = window.matchMedia("(min-width: 981px)");
+
+function closeMenuOnDesktop(event) {
+  if (event.matches) {
+    setMobileMenu(false);
+  }
+}
+
+desktopNavigation.addEventListener("change", closeMenuOnDesktop);
+
 if (window.lucide) {
-  lucide.createIcons();
+  window.lucide.createIcons();
 }
 
 function updateHeaderOnScroll() {
@@ -35,14 +55,21 @@ window.addEventListener("scroll", updateHeaderOnScroll, { passive: true });
 updateHeaderOnScroll();
 
 const dashboardStatus = document.querySelector(".dashboard-status");
+const currentStatusLabel = document.querySelector(".status-current");
+const proposedStatusLabel = document.querySelector(".status-proposed");
+const dashboardCard = document.querySelector(".hero-card");
+const dashboardMotionToggle = document.querySelector(".dashboard-motion-toggle");
 const kpis = document.querySelectorAll(".kpi[data-current][data-proposed]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const kpiAnimationFrames = new WeakMap();
+const kpiUpdateTimeouts = new WeakMap();
 
 const revealGroups = [
   ".intro > div",
   ".section-title",
   ".service-card",
+  ".process-step",
+  ".services-next-step",
   ".why > div:first-child",
   ".why-item",
   ".contact > div"
@@ -55,6 +82,10 @@ const revealElements = revealGroups.flatMap((selector) =>
 revealElements.forEach((element, index) => {
   element.classList.add("reveal");
   element.style.setProperty("--reveal-delay", `${(index % 3) * 90}ms`);
+});
+
+document.querySelectorAll(".process-step").forEach((element, index) => {
+  element.style.setProperty("--reveal-delay", `${index * 90}ms`);
 });
 
 if (!prefersReducedMotion.matches && "IntersectionObserver" in window) {
@@ -78,7 +109,7 @@ if (!prefersReducedMotion.matches && "IntersectionObserver" in window) {
 }
 
 function animateKpiValue(kpi) {
-  const valueElement = kpi.querySelector("strong");
+  const valueElement = kpi.querySelector("dd");
   const target = Number(kpi.dataset.value);
   const decimals = Number(kpi.dataset.decimals || 0);
   const suffix = kpi.dataset.suffix || "";
@@ -98,6 +129,8 @@ function animateKpiValue(kpi) {
 
     if (progress < 1) {
       kpiAnimationFrames.set(kpi, requestAnimationFrame(count));
+    } else {
+      kpiAnimationFrames.delete(kpi);
     }
   }
 
@@ -106,26 +139,31 @@ function animateKpiValue(kpi) {
 }
 
 function updateDashboard(showProposed) {
-  dashboardStatus.setAttribute(
-    "aria-label",
-    showProposed ? "Escenario optimizado" : "Estado actual"
-  );
   dashboardStatus.classList.toggle("is-proposed", showProposed);
+  currentStatusLabel.toggleAttribute("aria-current", !showProposed);
+  proposedStatusLabel.toggleAttribute("aria-current", showProposed);
 
   kpis.forEach((kpi) => {
+    const pendingUpdate = kpiUpdateTimeouts.get(kpi);
+    const activeFrame = kpiAnimationFrames.get(kpi);
+
+    if (pendingUpdate) {
+      window.clearTimeout(pendingUpdate);
+    }
+
+    if (activeFrame) {
+      cancelAnimationFrame(activeFrame);
+    }
+
     kpi.classList.add("is-updating");
 
-    window.setTimeout(() => {
-      const activeFrame = kpiAnimationFrames.get(kpi);
-
-      if (activeFrame) {
-        cancelAnimationFrame(activeFrame);
-      }
+    const updateTimeout = window.setTimeout(() => {
+      kpiUpdateTimeouts.delete(kpi);
 
       if (showProposed && kpi.dataset.value) {
         animateKpiValue(kpi);
       } else {
-        kpi.querySelector("strong").textContent = showProposed
+        kpi.querySelector("dd").textContent = showProposed
           ? kpi.dataset.proposed
           : kpi.dataset.current;
       }
@@ -134,18 +172,138 @@ function updateDashboard(showProposed) {
       kpi.classList.toggle("kpi-positive", showProposed);
       kpi.classList.remove("is-updating");
     }, prefersReducedMotion.matches ? 0 : 300);
+
+    kpiUpdateTimeouts.set(kpi, updateTimeout);
   });
 }
 
-if (dashboardStatus && kpis.length) {
+let dashboardInterval = null;
+let showProposed = false;
+let dashboardVisible = true;
+let dashboardPausedByUser = false;
+
+function cancelDashboardAnimations() {
+  kpis.forEach((kpi) => {
+    const pendingUpdate = kpiUpdateTimeouts.get(kpi);
+    const activeFrame = kpiAnimationFrames.get(kpi);
+
+    if (pendingUpdate) {
+      window.clearTimeout(pendingUpdate);
+      kpiUpdateTimeouts.delete(kpi);
+    }
+
+    if (activeFrame) {
+      cancelAnimationFrame(activeFrame);
+      kpiAnimationFrames.delete(kpi);
+    }
+
+    kpi.querySelector("dd").textContent = showProposed
+      ? kpi.dataset.proposed
+      : kpi.dataset.current;
+    kpi.classList.toggle("kpi-alert", !showProposed);
+    kpi.classList.toggle("kpi-positive", showProposed);
+    kpi.classList.remove("is-updating");
+  });
+}
+
+function stopDashboardCycle() {
+  if (dashboardInterval) {
+    window.clearInterval(dashboardInterval);
+    dashboardInterval = null;
+  }
+
+  cancelDashboardAnimations();
+}
+
+function canRunDashboardCycle() {
+  return (
+    !prefersReducedMotion.matches &&
+    !dashboardPausedByUser &&
+    dashboardVisible &&
+    !document.hidden
+  );
+}
+
+function startDashboardCycle() {
+  if (!canRunDashboardCycle() || dashboardInterval) {
+    return;
+  }
+
+  dashboardInterval = window.setInterval(() => {
+    showProposed = !showProposed;
+    updateDashboard(showProposed);
+  }, 4000);
+}
+
+function updateDashboardControl() {
+  if (!dashboardMotionToggle) {
+    return;
+  }
+
+  dashboardMotionToggle.textContent = dashboardPausedByUser ? "Reanudar" : "Pausar";
+  dashboardMotionToggle.setAttribute(
+    "aria-label",
+    dashboardPausedByUser
+      ? "Reanudar cambio automático de indicadores"
+      : "Pausar cambio automático de indicadores"
+  );
+}
+
+if (dashboardStatus && dashboardCard && kpis.length) {
+  if (dashboardMotionToggle) {
+    dashboardMotionToggle.addEventListener("click", () => {
+      dashboardPausedByUser = !dashboardPausedByUser;
+      updateDashboardControl();
+
+      if (dashboardPausedByUser) {
+        stopDashboardCycle();
+      } else {
+        startDashboardCycle();
+      }
+    });
+  }
+
+  if ("IntersectionObserver" in window) {
+    const dashboardObserver = new IntersectionObserver(
+      ([entry]) => {
+        dashboardVisible = entry.isIntersecting;
+
+        if (dashboardVisible) {
+          startDashboardCycle();
+        } else {
+          stopDashboardCycle();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    dashboardObserver.observe(dashboardCard);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopDashboardCycle();
+    } else {
+      startDashboardCycle();
+    }
+  });
+
+  prefersReducedMotion.addEventListener("change", (event) => {
+    if (event.matches) {
+      stopDashboardCycle();
+      showProposed = true;
+      updateDashboard(true);
+    } else {
+      startDashboardCycle();
+    }
+  });
+
+  updateDashboardControl();
+
   if (prefersReducedMotion.matches) {
+    showProposed = true;
     updateDashboard(true);
   } else {
-    let showProposed = false;
-
-    window.setInterval(() => {
-      showProposed = !showProposed;
-      updateDashboard(showProposed);
-    }, 4000);
+    startDashboardCycle();
   }
 }

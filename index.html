@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<script src="https://unpkg.com/lucide@latest"></script>
+<script defer src="https://unpkg.com/lucide@latest"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#031326" />
 <link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="canonical" href="https://7voltios.com/" />
 
 <title>7 Voltios Technologies | Consultoría, Diseños y Soluciones Energéticas</title>
-<meta  name="description"  content="Consultoría energética, diseños eléctricos y soluciones energéticas llave en mano para empresas, comercios y copropiedades: movilidad eléctrica, energía solar, cumplimiento normativo, calidad de energía y monitoreo energético."/>
+<meta name="description" content="Consultoría energética, diseños eléctricos y soluciones energéticas para empresas, comercios y copropiedades: diagnóstico eléctrico, movilidad eléctrica, energía solar, RETIE y protecciones eléctricas." />
   
-<meta name="keywords" content="consultoría energética, consultoría eléctrica, diagnóstico energético, viabilidad técnico financiera energía solar, viabilidad cargador vehículo eléctrico, diseño eléctrico, diseño energía solar fotovoltaica, diseño detección y alarma contra incendios, cumplimiento normativo, movilidad eléctrica, electrificación, cargadores vehículos eléctricos, RETIE, RETILAP"/>
+<meta name="keywords" content="consultoría energética, diagnóstico de infraestructura eléctrica, viabilidad infraestructura de carga, diseños eléctricos, movilidad eléctrica, cargadores de vehículos eléctricos, energía solar fotovoltaica, RETIE, protecciones eléctricas" />
 
 <!-- Open Graph / WhatsApp / LinkedIn -->
 <meta property="og:title" content="7 Voltios Technologies | Consultoría, Diseños y Soluciones Energéticas">
@@ -26,14 +28,16 @@
 <meta name="twitter:description" content="Consultoría energética, diseños eléctricos y soluciones energéticas para empresas, comercios y copropiedades.">
 <meta name="twitter:image" content="https://7voltios.com/img/og-image-v2.png">
   
-<link rel="stylesheet" href="css/styles.css?v=20260717-portal" />
+<link rel="stylesheet" href="css/styles.css?v=20260718-ux" />
 </head>
 
 <body>
 
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
   <header class="header">
-    <a href="#" class="logo">
-      <img src="img/logo-maestro.png" alt="7 Voltios Technologies">
+    <a href="/" class="logo" aria-label="7 Voltios Technologies, inicio">
+      <img src="img/logo-maestro.png" alt="7 Voltios Technologies" width="560" height="379">
     </a>
 
     <button
@@ -54,12 +58,12 @@
       <a href="#contacto">Contacto</a>
     </nav>
 
-    <a class="header-btn" href="https://wa.me/573003007000?text=Hola.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%207%20VOLTIOS%20TECHNOLOGIES.%0D%0ANombre%3A%0D%0AEmpresa%2FCopropiedad%3A%0D%0ACiudad%3A%0D%0ANecesidad%3A" target="_blank" rel="noopener noreferrer">
+    <a class="header-btn" href="https://wa.me/573003007000?text=Hola.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%207%20VOLTIOS%20TECHNOLOGIES.%0D%0ANombre%3A%0D%0AEmpresa%2FCopropiedad%3A%0D%0ACiudad%3A%0D%0ANecesidad%3A" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp. Se abre en una nueva pestaña">
       Escríbenos por WhatsApp
     </a>
   </header>
 
-  <main>
+  <main id="contenido-principal" tabindex="-1">
 
     <section class="hero">
       <div class="hero-text">
@@ -74,7 +78,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="https://wa.me/573003007000?text=Hola.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%207%20VOLTIOS%20TECHNOLOGIES.%0D%0ANombre%3A%0D%0AEmpresa%2FCopropiedad%3A%0D%0ACiudad%3A%0D%0ANecesidad%3A" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/573003007000?text=Hola.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%207%20VOLTIOS%20TECHNOLOGIES.%0D%0ANombre%3A%0D%0AEmpresa%2FCopropiedad%3A%0D%0ACiudad%3A%0D%0ANecesidad%3A" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Solicitar diagnóstico por WhatsApp. Se abre en una nueva pestaña">
             Solicitar diagnóstico por WhatsApp
           </a>
 
@@ -84,47 +88,50 @@
         </div>
       </div>
 
-      <div class="hero-card">
+      <div class="hero-card" role="region" aria-label="Ejemplo ilustrativo de evaluación energética">
         <div class="dashboard-heading">
-          <div class="dashboard-status" aria-live="polite" aria-label="Estado actual">
-            <span class="status-current">Estado actual</span>
+          <div class="dashboard-status" role="group" aria-label="Comparación de escenarios">
+            <span class="status-current" aria-current="true">Estado actual</span>
             <span class="status-proposed">Escenario optimizado</span>
           </div>
         </div>
 
-        <div class="kpi-grid">
+        <dl class="kpi-grid">
           <div class="kpi kpi-alert kpi-risk" data-current="Medio" data-proposed="Bajo">
-            <small>Riesgo eléctrico</small>
-            <strong>Medio</strong>
+            <dt>Riesgo eléctrico</dt>
+            <dd>Medio</dd>
           </div>
 
           <div class="kpi kpi-alert" data-current="Sin definir" data-proposed="8 cargadores" data-value="8" data-suffix=" cargadores" data-duration="900">
-            <small>Capacidad EV</small>
-            <strong>Sin definir</strong>
+            <dt>Capacidad EV</dt>
+            <dd>Sin definir</dd>
           </div>
 
           <div class="kpi kpi-alert" data-current="Sin evaluar" data-proposed="170 kWp" data-value="170" data-suffix=" kWp" data-duration="1600">
-            <small>Potencia solar disponible</small>
-            <strong>Sin evaluar</strong>
+            <dt>Potencia solar disponible</dt>
+            <dd>Sin evaluar</dd>
           </div>
 
           <div class="kpi kpi-alert kpi-danger" data-current="No cumple" data-proposed="Cumpliendo">
-            <small>Cumplimiento normativo</small>
-            <strong>No cumple</strong>
+            <dt>Cumplimiento normativo</dt>
+            <dd>No cumple</dd>
           </div>
 
           <div class="kpi kpi-alert" data-current="Pendiente" data-proposed="Evaluada">
-            <small>Viabilidad</small>
-            <strong>Pendiente</strong>
+            <dt>Viabilidad</dt>
+            <dd>Pendiente</dd>
           </div>
 
           <div class="kpi kpi-alert" data-current="--" data-proposed="3.7 años" data-value="3.7" data-suffix=" años" data-decimals="1" data-duration="2200">
-            <small>Payback</small>
-            <strong>--</strong>
+            <dt>Payback</dt>
+            <dd>--</dd>
           </div>
-        </div>
+        </dl>
 
-        <p class="dashboard-note">Escenario ilustrativo. Los resultados dependen de las condiciones de cada proyecto.</p>
+        <div class="dashboard-footer">
+          <p class="dashboard-note">Ejemplo ilustrativo. Los indicadores y resultados varían según el alcance y cada proyecto.</p>
+          <button class="dashboard-motion-toggle" type="button" aria-label="Pausar cambio automático de indicadores">Pausar</button>
+        </div>
       </div>
 
       <div class="energy-flow" aria-hidden="true">
@@ -159,31 +166,24 @@
 
     <section class="intro">
       <div>
-        <span>Visión técnica para decisiones energéticas</span>
+        <span>Qué evaluamos</span>
         <h2>Preparamos la infraestructura energética para el crecimiento y la movilidad eléctrica.</h2>
       </div>
 
       <div>
-        <p>
-          En un mundo donde la energía impacta todos los días los costos y el crecimiento,
-          muchas decisiones se toman sin la información adecuada.
+        <p class="intro-lead">
+          Antes de invertir o ampliar una infraestructura eléctrica, es necesario entender su punto de partida y comparar alternativas con criterios técnicos y financieros.
         </p>
 
-        <p>
-          La energía es uno de los recursos más importantes. Sin embargo, entender cómo utilizarla 
-          de forma eficiente, segura y rentable no siempre es sencillo.
-        </p>
+        <ul class="intro-benefits">
+          <li>Capacidad eléctrica disponible.</li>
+          <li>Riesgos y brechas normativas.</li>
+          <li>Escenarios técnicos posibles.</li>
+          <li>Inversión y viabilidad financiera.</li>
+          <li>Ruta recomendada de implementación.</li>
+        </ul>
 
-        <p>
-          La llegada de los vehículos eléctricos y la transición hacia fuentes de energía más sostenibles están
-           generando nuevos retos para empresas y copropiedades que necesitan garantizar que su infraestructura 
-           eléctrica pueda crecer de forma segura y sostenible.
-        </p>
-
-        <p>
-          En <strong>7 VOLTIOS</strong> ayudamos a nuestros clientes a evaluar, diseñar e implementar soluciones
-           relacionadas con su infraestructura energética, reduciendo riesgos y facilitando la toma de decisiones.
-        </p>
+        <p class="intro-scope">Los análisis y entregables se definen según el alcance contratado y las condiciones de cada proyecto.</p>
       </div>
     </section>
 
@@ -233,6 +233,44 @@
         </article>
 
       </div>
+
+      <section class="process" aria-labelledby="process-title">
+        <div class="process-heading">
+          <span>Cómo iniciamos</span>
+          <h2 id="process-title">Un proceso claro para definir el punto de partida de cada proyecto energético</h2>
+        </div>
+
+        <ol class="process-grid">
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">01</span>
+            <h3>Entendemos la necesidad</h3>
+            <p>Identificamos los objetivos, las restricciones y el contexto del proyecto.</p>
+          </li>
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">02</span>
+            <h3>Evaluamos la información</h3>
+            <p>Revisamos los datos disponibles y las condiciones de la infraestructura.</p>
+          </li>
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">03</span>
+            <h3>Comparamos escenarios</h3>
+            <p>Contrastamos alternativas técnicas y, cuando aplica, normativas y financieras.</p>
+          </li>
+          <li class="process-step">
+            <span class="process-number" aria-hidden="true">04</span>
+            <h3>Definimos la ruta</h3>
+            <p>Planteamos el siguiente paso de diagnóstico, diseño o implementación.</p>
+          </li>
+        </ol>
+      </section>
+
+      <div class="services-next-step">
+        <div>
+          <span>Siguiente paso</span>
+          <p>¿No sabes por cuál línea empezar? Conversemos sobre tu necesidad y definamos el punto de partida.</p>
+        </div>
+        <a href="#contacto" class="btn services-next-step-btn">Conversemos sobre tu proyecto</a>
+      </div>
     </section>
 
     <section class="why" id="porque">
@@ -244,37 +282,37 @@
         </p>
       </div>
 
-      <div class="why-grid">
-  <div class="why-item">
-    <i data-lucide="cog"></i>
-    <p>Ingeniería<br>especializada</p>
-  </div>
+      <ul class="why-grid">
+        <li class="why-item">
+          <i data-lucide="cog" aria-hidden="true"></i>
+          <p>Ingeniería<br>especializada</p>
+        </li>
 
-  <div class="why-item">
-    <i data-lucide="chart-no-axes-combined"></i>
-    <p>Visión técnica<br>y financiera</p>
-  </div>
+        <li class="why-item">
+          <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
+          <p>Visión técnica<br>y financiera</p>
+        </li>
 
-  <div class="why-item">
-    <i data-lucide="shield-check"></i>
-    <p>Cumplimiento<br>normativo</p>
-  </div>
+        <li class="why-item">
+          <i data-lucide="shield-check" aria-hidden="true"></i>
+          <p>Cumplimiento<br>normativo</p>
+        </li>
 
-  <div class="why-item">
-    <i data-lucide="leaf"></i>
-    <p>Soluciones<br>sostenibles</p>
-  </div>
+        <li class="why-item">
+          <i data-lucide="leaf" aria-hidden="true"></i>
+          <p>Soluciones<br>sostenibles</p>
+        </li>
 
-  <div class="why-item">
-    <i data-lucide="target"></i>
-    <p>Enfoque en<br>resultados</p>
-  </div>
+        <li class="why-item">
+          <i data-lucide="target" aria-hidden="true"></i>
+          <p>Enfoque en<br>resultados</p>
+        </li>
 
-  <div class="why-item">
-    <i data-lucide="users"></i>
-    <p>Acompañamiento<br>estratégico</p>
-  </div>
-</div>
+        <li class="why-item">
+          <i data-lucide="users" aria-hidden="true"></i>
+          <p>Acompañamiento<br>estratégico</p>
+        </li>
+      </ul>
 
       <div class="energy-flow-secondary" aria-hidden="true">
         <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
@@ -341,7 +379,7 @@
       </div>
 
       <div class="contact-buttons">
-        <a href="https://wa.me/573003007000?text=Hola.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%207%20VOLTIOS%20TECHNOLOGIES.%0D%0ANombre%3A%0D%0AEmpresa%2FCopropiedad%3A%0D%0ACiudad%3A%0D%0ANecesidad%3A" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
+        <a href="https://wa.me/573003007000?text=Hola.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%207%20VOLTIOS%20TECHNOLOGIES.%0D%0ANombre%3A%0D%0AEmpresa%2FCopropiedad%3A%0D%0ACiudad%3A%0D%0ANecesidad%3A" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp. Se abre en una nueva pestaña">Escríbenos por WhatsApp</a>
         <a href="mailto:proyectos@7voltios.com">proyectos@7voltios.com</a>
       </div>
     </section>
@@ -349,7 +387,7 @@
   </main>
 
   <footer class="footer">
-    <img src="img/logo-maestro.png" alt="7 Voltios Technologies">
+    <img src="img/logo-maestro.png" alt="7 Voltios Technologies" width="560" height="379">
 
     <a
       class="footer-portal"
@@ -370,6 +408,6 @@
     <p>7 VOLTIOS TECHNOLOGIES © 2026. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="js/main.js?v=20260712-ui"></script>
+  <script defer src="js/main.js?v=20260718-ux"></script>
 </body>
 </html>
