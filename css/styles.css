@@ -734,6 +734,7 @@ img {
   background-image:
     linear-gradient(180deg, rgba(3, 19, 38, 0.04), rgba(3, 19, 38, 0.25)),
     url("../img/disenos.webp");
+  background-position: center 28%;
 }
 
 .service-card.proyectos::before {
@@ -771,6 +772,54 @@ img {
   color: #394b5f;
   line-height: 1.65;
   margin-bottom: 18px;
+}
+
+.service-card .service-question {
+  min-height: 92px;
+  color: var(--blue);
+  font-size: 20px;
+  font-weight: 850;
+  line-height: 1.4;
+}
+
+.service-card .service-promise {
+  position: relative;
+  margin-bottom: 14px;
+  padding-top: 14px;
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.35px;
+}
+
+.service-card .service-promise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.service-card .service-description {
+  color: #526679;
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+.service-card.consultoria .service-promise {
+  color: var(--teal-on-light);
+}
+
+.service-card.disenos .service-promise {
+  color: #082b63;
+}
+
+.service-card.proyectos .service-promise {
+  color: var(--green);
 }
 
 .service-card ul {
@@ -823,6 +872,14 @@ img {
   margin-top: 10px;
   font-size: clamp(28px, 3.5vw, 38px);
   line-height: 1.18;
+}
+
+.process-heading > p {
+  max-width: 720px;
+  margin-top: 14px;
+  color: #526679;
+  font-size: 17px;
+  line-height: 1.65;
 }
 
 .process-grid {
@@ -1227,6 +1284,10 @@ img {
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .service-card .service-question {
+    min-height: auto;
   }
 
   .process {
