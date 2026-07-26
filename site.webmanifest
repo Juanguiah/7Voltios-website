@@ -1,0 +1,21 @@
+{
+  "name": "7 VOLTIOS Energía",
+  "short_name": "7V Energía",
+  "description": "Consultoría, diseños eléctricos y soluciones energéticas.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#031326",
+  "theme_color": "#031326",
+  "icons": [
+    {
+      "src": "img/favicon-site-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicon-site-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
