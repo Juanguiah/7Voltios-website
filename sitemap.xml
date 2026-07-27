@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://7voltios.com/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <image:image>
+      <image:loc>https://7voltios.com/img/hero-brochure-scene.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://7voltios.com/img/consultoria.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://7voltios.com/img/disenos.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://7voltios.com/img/proyectos.webp</image:loc>
+    </image:image>
+  </url>
+</urlset>
