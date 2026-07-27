@@ -1267,26 +1267,11 @@ img {
   font-size: 17px;
 }
 
-.contact > div > p:not(.contact-details) {
+.contact > div > p {
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
   text-wrap: pretty;
-}
-
-.contact .contact-details {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.contact-details a {
-  color: var(--blue-dark);
-  text-underline-offset: 3px;
 }
 
 .contact-buttons {
