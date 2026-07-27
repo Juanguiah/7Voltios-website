@@ -179,6 +179,11 @@ img {
   color: var(--teal);
 }
 
+.brand-seven {
+  color: var(--teal);
+  font: inherit;
+}
+
 .nav a:hover::after,
 .nav a:focus-visible::after {
   transform: scaleX(1);
@@ -1065,11 +1070,6 @@ img {
 
 .why .why-kicker {
   color: var(--white);
-}
-
-.why .why-kicker strong {
-  color: var(--teal);
-  font: inherit;
 }
 
 .why p {
