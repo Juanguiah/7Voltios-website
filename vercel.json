@@ -3,14 +3,14 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "www.7voltios.com"
         }
       ],
-      "destination": "https://7voltios.com/:path*",
+      "destination": "https://7voltios.com/$1",
       "permanent": true
     },
     {
