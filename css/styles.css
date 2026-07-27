@@ -1374,9 +1374,9 @@ img {
 
   .hero-text .hero-kicker-mobile {
     display: block;
-    font-size: clamp(12px, 3.35vw, 14px);
-    letter-spacing: 0.35px;
-    text-transform: none;
+    font-size: clamp(10.5px, 3.15vw, 13px);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
     white-space: nowrap;
   }
 
