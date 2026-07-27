@@ -184,6 +184,15 @@ img {
   font: inherit;
 }
 
+.brand-name {
+  font-weight: 900;
+}
+
+.nav a.nav-why {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .nav a:hover::after,
 .nav a:focus-visible::after {
   transform: scaleX(1);
@@ -1070,6 +1079,8 @@ img {
 
 .why .why-kicker {
   color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .why p {
