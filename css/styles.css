@@ -354,11 +354,16 @@ img {
   max-width: 620px;
 }
 
-.hero p,
+.hero-text > p,
 .intro p,
-.service-card p,
-.why p {
-  text-align: left;
+.service-card .service-description,
+.process-heading > p,
+.process-step > p,
+.why > div > p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  text-wrap: pretty;
 }
 
 .hero-actions {
@@ -1341,13 +1346,6 @@ img {
 @media (max-width: 560px) {
   html {
     scroll-padding-top: 125px;
-  }
-
-  .hero p,
-  .intro p,
-  .service-card p,
-  .why p {
-    text-align: left;
   }
 
   .header {
