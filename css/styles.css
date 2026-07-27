@@ -1063,6 +1063,15 @@ img {
   margin: 16px 0 18px;
 }
 
+.why .why-kicker {
+  color: var(--white);
+}
+
+.why .why-kicker strong {
+  color: var(--teal);
+  font: inherit;
+}
+
 .why p {
   color: var(--text);
   font-size: 18px;
