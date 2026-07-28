@@ -1247,15 +1247,18 @@ img {
 .contact {
   background: linear-gradient(135deg, #2fc8c2, #57e0da);
   color: var(--blue-dark);
-  padding: 70px 7%;
+  padding: 52px 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 38px;
+  gap: 30px;
 }
 
-.contact span {
+.contact > div > span:first-child {
+  display: block;
   color: var(--blue-dark);
+  font-size: 15px;
+  line-height: 1.2;
 }
 
 .contact h2 {
@@ -1457,7 +1460,8 @@ img {
   .contact {
     flex-direction: column;
     align-items: flex-start;
-    padding: 58px 6%;
+    gap: 24px;
+    padding: 42px 6%;
   }
 
   .contact-buttons {
@@ -1635,6 +1639,19 @@ img {
     margin: 0 18px;
     padding-bottom: 19px;
     font-size: 15px;
+  }
+
+  .contact {
+    gap: 22px;
+    padding: 38px 5%;
+  }
+
+  .contact-buttons {
+    gap: 12px;
+  }
+
+  .contact-buttons a {
+    padding: 15px 18px;
   }
 
   .why-grid {
