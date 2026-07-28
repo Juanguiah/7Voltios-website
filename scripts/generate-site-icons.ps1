@@ -108,37 +108,10 @@ function New-SiteIcon {
             $tilePath.Dispose()
         }
 
-        $orbit = [System.Drawing.Pen]::new(
-            [System.Drawing.Color]::FromArgb(205, 63, 214, 208),
-            14
-        )
-        try {
-            $orbit.StartCap = [System.Drawing.Drawing2D.LineCap]::Round
-            $orbit.EndCap = [System.Drawing.Drawing2D.LineCap]::Round
-            $graphics.DrawArc($orbit, 43, 43, 426, 426, -38, 250)
-        }
-        finally {
-            $orbit.Dispose()
-        }
-
-        $electronGlow = [System.Drawing.SolidBrush]::new(
-            [System.Drawing.Color]::FromArgb(75, 118, 255, 247)
-        )
-        $electron = [System.Drawing.SolidBrush]::new(
-            [System.Drawing.ColorTranslator]::FromHtml("#76FFF7")
-        )
-        try {
-            $graphics.FillEllipse($electronGlow, 60, 133, 34, 34)
-            $graphics.FillEllipse($electron, 70, 143, 14, 14)
-        }
-        finally {
-            $electronGlow.Dispose()
-            $electron.Dispose()
-        }
-
+        # El favicon debe reproducir el monograma oficial sin símbolos añadidos.
         $graphics.DrawImage(
             $LogoMark,
-            [System.Drawing.RectangleF]::new(78, 151, 356, 226)
+            [System.Drawing.RectangleF]::new(42, 116, 428, 272)
         )
 
         return $canvas
@@ -180,8 +153,8 @@ $logoMark = Get-TransparentLogoMark -Path $sourcePath
 try {
     $siteIcon = New-SiteIcon -LogoMark $logoMark
     try {
-        foreach ($size in @(32, 180, 192, 512)) {
-            $outputPath = Join-Path $outputDirectory "favicon-site-$size.png"
+        foreach ($size in @(16, 32, 48, 180, 192, 512)) {
+            $outputPath = Join-Path $outputDirectory "favicon-7v-$size.png"
             Save-ResizedPng -Source $siteIcon -Size $size -Path $outputPath
         }
     }
@@ -193,4 +166,4 @@ finally {
     $logoMark.Dispose()
 }
 
-Write-Output "Generated website icons in $outputDirectory"
+Write-Output "Generated official 7V icons in $outputDirectory"
