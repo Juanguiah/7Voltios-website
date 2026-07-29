@@ -70,8 +70,6 @@ const revealGroups = [
   ".service-card",
   ".process-step",
   ".services-next-step",
-  ".ev-faq-heading",
-  ".faq-item",
   ".why > div:first-child",
   ".why-item",
   ".contact > div"
