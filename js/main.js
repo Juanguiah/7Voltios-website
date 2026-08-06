@@ -76,6 +76,7 @@ const heroQuestionAutoplay = document.querySelector(".hero-question-autoplay");
 const heroQuestionAnnouncement = document.getElementById(
   "hero-question-announcement"
 );
+const HERO_QUESTION_INTERVAL = 3000;
 let heroQuestionIndex = 0;
 let heroQuestionInterval = null;
 let heroQuestionVisible = true;
@@ -132,7 +133,7 @@ function startHeroQuestionCycle() {
 
   heroQuestionInterval = window.setInterval(() => {
     showHeroQuestion((heroQuestionIndex + 1) % heroQuestionOptions.length);
-  }, 5000);
+  }, HERO_QUESTION_INTERVAL);
 }
 
 function restartHeroQuestionCycle() {
