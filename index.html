@@ -128,7 +128,7 @@
   </script>
 
   <script defer src="https://unpkg.com/lucide@1.27.0/dist/umd/lucide.min.js"></script>
-  <link rel="stylesheet" href="css/styles.css?v=20260806-hero-questions" />
+  <link rel="stylesheet" href="css/styles.css?v=20260806-hero-navigation" />
 </head>
 
 <body>
@@ -175,6 +175,27 @@
           <span class="hero-question-option" aria-hidden="true">¿Quiere instalar un cargador para su vehículo eléctrico?</span>
           <span class="hero-question-option" aria-hidden="true">¿Su proyecto necesita certificación RETIE para entrar en operación?</span>
         </h1>
+
+        <div class="hero-question-controls" role="group" aria-label="Navegar entre las preguntas principales">
+          <span class="hero-question-counter" aria-hidden="true">1 de 3</span>
+
+          <div class="hero-question-pagination">
+            <button class="hero-question-selector is-active" type="button" data-question-index="0" aria-label="Ver pregunta 1 de 3" aria-current="true"></button>
+            <button class="hero-question-selector" type="button" data-question-index="1" aria-label="Ver pregunta 2 de 3"></button>
+            <button class="hero-question-selector" type="button" data-question-index="2" aria-label="Ver pregunta 3 de 3"></button>
+          </div>
+
+          <button class="hero-question-autoplay" type="button" aria-pressed="false" aria-label="Pausar cambio automático de preguntas">
+            <svg class="hero-question-pause-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14M16 5v14"></path>
+            </svg>
+            <svg class="hero-question-play-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m8 5 11 7-11 7V5Z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <p class="sr-only" id="hero-question-announcement" aria-live="polite"></p>
 
         <p>
           Evaluamos la capacidad disponible, los riesgos y las condiciones técnicas y
@@ -499,6 +520,6 @@
     <p>7 VOLTIOS TECHNOLOGIES © 2026. Todos los derechos reservados.</p>
   </footer>
 
-  <script defer src="js/main.js?v=20260806-hero-questions"></script>
+  <script defer src="js/main.js?v=20260806-hero-navigation"></script>
 </body>
 </html>

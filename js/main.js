@@ -68,18 +68,47 @@ const heroQuestion = document.querySelector(".hero-question");
 const heroQuestionOptions = Array.from(
   document.querySelectorAll(".hero-question-option")
 );
+const heroQuestionSelectors = Array.from(
+  document.querySelectorAll(".hero-question-selector")
+);
+const heroQuestionCounter = document.querySelector(".hero-question-counter");
+const heroQuestionAutoplay = document.querySelector(".hero-question-autoplay");
+const heroQuestionAnnouncement = document.getElementById(
+  "hero-question-announcement"
+);
 let heroQuestionIndex = 0;
 let heroQuestionInterval = null;
 let heroQuestionVisible = true;
+let heroQuestionPaused = false;
 
-function showHeroQuestion(index) {
-  heroQuestionIndex = index;
+function showHeroQuestion(index, announce = false) {
+  heroQuestionIndex =
+    (index + heroQuestionOptions.length) % heroQuestionOptions.length;
 
   heroQuestionOptions.forEach((option, optionIndex) => {
     const isActive = optionIndex === heroQuestionIndex;
     option.classList.toggle("is-active", isActive);
     option.setAttribute("aria-hidden", String(!isActive));
   });
+
+  heroQuestionSelectors.forEach((selector, selectorIndex) => {
+    const isActive = selectorIndex === heroQuestionIndex;
+    selector.classList.toggle("is-active", isActive);
+
+    if (isActive) {
+      selector.setAttribute("aria-current", "true");
+    } else {
+      selector.removeAttribute("aria-current");
+    }
+  });
+
+  if (heroQuestionCounter) {
+    heroQuestionCounter.textContent = `${heroQuestionIndex + 1} de ${heroQuestionOptions.length}`;
+  }
+
+  if (announce && heroQuestionAnnouncement) {
+    heroQuestionAnnouncement.textContent = `Pregunta ${heroQuestionIndex + 1} de ${heroQuestionOptions.length}: ${heroQuestionOptions[heroQuestionIndex].textContent.trim()}`;
+  }
 }
 
 function stopHeroQuestionCycle() {
@@ -94,6 +123,7 @@ function startHeroQuestionCycle() {
     heroQuestionInterval ||
     heroQuestionOptions.length < 2 ||
     prefersReducedMotion.matches ||
+    heroQuestionPaused ||
     !heroQuestionVisible ||
     document.hidden
   ) {
@@ -105,8 +135,56 @@ function startHeroQuestionCycle() {
   }, 5000);
 }
 
+function restartHeroQuestionCycle() {
+  stopHeroQuestionCycle();
+  startHeroQuestionCycle();
+}
+
+function updateHeroQuestionAutoplay() {
+  if (!heroQuestionAutoplay) {
+    return;
+  }
+
+  heroQuestionAutoplay.setAttribute("aria-pressed", String(heroQuestionPaused));
+  heroQuestionAutoplay.setAttribute(
+    "aria-label",
+    heroQuestionPaused
+      ? "Reanudar cambio automático de preguntas"
+      : "Pausar cambio automático de preguntas"
+  );
+  heroQuestionAutoplay.title = heroQuestionPaused
+    ? "Reanudar preguntas"
+    : "Pausar preguntas";
+}
+
 if (heroQuestion && heroQuestionOptions.length) {
   showHeroQuestion(0);
+  updateHeroQuestionAutoplay();
+
+  heroQuestionSelectors.forEach((selector) => {
+    selector.addEventListener("click", () => {
+      const selectedIndex = Number(selector.dataset.questionIndex);
+
+      if (!Number.isInteger(selectedIndex)) {
+        return;
+      }
+
+      stopHeroQuestionCycle();
+      showHeroQuestion(selectedIndex, true);
+      startHeroQuestionCycle();
+    });
+  });
+
+  heroQuestionAutoplay?.addEventListener("click", () => {
+    heroQuestionPaused = !heroQuestionPaused;
+    updateHeroQuestionAutoplay();
+
+    if (heroQuestionPaused) {
+      stopHeroQuestionCycle();
+    } else {
+      restartHeroQuestionCycle();
+    }
+  });
 
   if ("IntersectionObserver" in window) {
     const heroQuestionObserver = new IntersectionObserver(
@@ -138,7 +216,7 @@ if (heroQuestion && heroQuestionOptions.length) {
       stopHeroQuestionCycle();
       showHeroQuestion(0);
     } else {
-      startHeroQuestionCycle();
+      restartHeroQuestionCycle();
     }
   });
 
