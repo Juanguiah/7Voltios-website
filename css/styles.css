@@ -336,7 +336,7 @@ img {
   stroke-width: 1.5;
 }
 
-.hero-text span,
+.hero-text > span,
 .intro span,
 .section-title span,
 .why span,
@@ -355,6 +355,33 @@ img {
   font-size: clamp(42px, 5vw, 72px);
   line-height: 1.05;
   margin: 18px 0 24px;
+}
+
+.hero-question {
+  display: grid;
+  align-items: start;
+}
+
+.hero h1 .hero-question-option {
+  grid-area: 1 / 1;
+  color: inherit;
+  font: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0s linear 0.4s;
+}
+
+.hero h1 .hero-question-option.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
 }
 
 .hero h1 strong {
@@ -586,6 +613,11 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero h1 .hero-question-option {
+    transform: none;
+    transition: none;
+  }
+
   .kpi,
   .dashboard-status {
     transition: none;

@@ -64,6 +64,87 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const kpiAnimationFrames = new WeakMap();
 const kpiUpdateTimeouts = new WeakMap();
 
+const heroQuestion = document.querySelector(".hero-question");
+const heroQuestionOptions = Array.from(
+  document.querySelectorAll(".hero-question-option")
+);
+let heroQuestionIndex = 0;
+let heroQuestionInterval = null;
+let heroQuestionVisible = true;
+
+function showHeroQuestion(index) {
+  heroQuestionIndex = index;
+
+  heroQuestionOptions.forEach((option, optionIndex) => {
+    const isActive = optionIndex === heroQuestionIndex;
+    option.classList.toggle("is-active", isActive);
+    option.setAttribute("aria-hidden", String(!isActive));
+  });
+}
+
+function stopHeroQuestionCycle() {
+  if (heroQuestionInterval) {
+    window.clearInterval(heroQuestionInterval);
+    heroQuestionInterval = null;
+  }
+}
+
+function startHeroQuestionCycle() {
+  if (
+    heroQuestionInterval ||
+    heroQuestionOptions.length < 2 ||
+    prefersReducedMotion.matches ||
+    !heroQuestionVisible ||
+    document.hidden
+  ) {
+    return;
+  }
+
+  heroQuestionInterval = window.setInterval(() => {
+    showHeroQuestion((heroQuestionIndex + 1) % heroQuestionOptions.length);
+  }, 5000);
+}
+
+if (heroQuestion && heroQuestionOptions.length) {
+  showHeroQuestion(0);
+
+  if ("IntersectionObserver" in window) {
+    const heroQuestionObserver = new IntersectionObserver(
+      ([entry]) => {
+        heroQuestionVisible = entry.isIntersecting;
+
+        if (heroQuestionVisible) {
+          startHeroQuestionCycle();
+        } else {
+          stopHeroQuestionCycle();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    heroQuestionObserver.observe(heroQuestion);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopHeroQuestionCycle();
+    } else {
+      startHeroQuestionCycle();
+    }
+  });
+
+  prefersReducedMotion.addEventListener("change", (event) => {
+    if (event.matches) {
+      stopHeroQuestionCycle();
+      showHeroQuestion(0);
+    } else {
+      startHeroQuestionCycle();
+    }
+  });
+
+  startHeroQuestionCycle();
+}
+
 const revealGroups = [
   ".intro > div",
   ".section-title",
