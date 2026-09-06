@@ -76,7 +76,7 @@ const heroQuestionAutoplay = document.querySelector(".hero-question-autoplay");
 const heroQuestionAnnouncement = document.getElementById(
   "hero-question-announcement"
 );
-const HERO_QUESTION_INTERVAL = 3000;
+const HERO_QUESTION_INTERVAL = 4000;
 let heroQuestionIndex = 0;
 let heroQuestionInterval = null;
 let heroQuestionVisible = true;
