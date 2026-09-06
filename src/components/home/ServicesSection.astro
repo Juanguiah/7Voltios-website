@@ -1,0 +1,114 @@
+---
+const services = [
+  {
+    className: "consultoria",
+    title: "Consultoría Energética",
+    question: "¿Está preparada tu infraestructura energética para crecer de manera segura?",
+    promise: "Entendemos el problema.",
+    description:
+      "Analizamos tu necesidad y te orientamos para tomar decisiones claras, seguras y alineadas con los objetivos de tu proyecto.",
+    items: [
+      "Viabilidad para infraestructura de carga para vehículos eléctricos.",
+      "Diagnóstico de infraestructura eléctrica.",
+    ],
+  },
+  {
+    className: "disenos",
+    title: "Diseños Eléctricos",
+    question: "¿Vas a construir sin una ingeniería eléctrica profesional?",
+    promise: "Diseñamos la solución.",
+    description:
+      "Una buena ingeniería permite detectar y corregir problemas antes de construir, facilita la legalización y reduce riesgos técnicos, económicos y operativos.",
+    items: [
+      "Diseño de infraestructura para movilidad eléctrica.",
+      "Diseño de instalaciones eléctricas conforme norma RETIE.",
+      "Gestión técnica para certificación RETIE.",
+    ],
+  },
+  {
+    className: "proyectos",
+    title: "Soluciones Energéticas",
+    question: "¿Quieres electrificar tu parqueadero o generar tu propia energía?",
+    promise: "Hacemos realidad la solución.",
+    description:
+      "Desarrollamos proyectos de movilidad eléctrica y energía solar con enfoque en seguridad, desempeño y cumplimiento.",
+    items: [
+      "Infraestructura de carga para vehículos eléctricos.",
+      "Sistemas de energía solar fotovoltaica.",
+      "Tecnologías especializadas para protección y carga de equipos.",
+    ],
+  },
+];
+
+const processSteps = [
+  {
+    title: "Entendemos la necesidad",
+    description: "Identificamos los objetivos, las restricciones y el contexto del proyecto.",
+  },
+  {
+    title: "Revisamos la información disponible",
+    description: "Analizamos la documentación, los datos y las condiciones existentes.",
+  },
+  {
+    title: "Definimos el alcance adecuado",
+    description: "Precisamos el servicio y los entregables que realmente requiere el proyecto.",
+  },
+  {
+    title: "Acordamos el siguiente paso",
+    description: "Presentamos una ruta clara para iniciar, sin etapas ni servicios innecesarios.",
+  },
+];
+---
+
+<section class="services" id="servicios">
+  <div class="section-title">
+    <span>Nuestras soluciones</span>
+    <h2>Tres líneas de servicio para acompañar tus proyectos energéticos</h2>
+  </div>
+
+  <div class="services-grid">
+    {services.map((service) => (
+      <article class:list={["service-card", service.className]}>
+        <h3>{service.title}</h3>
+        <p class="service-question">{service.question}</p>
+        <p class="service-promise">{service.promise}</p>
+        <p class="service-description">{service.description}</p>
+
+        <ul>
+          {service.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    ))}
+  </div>
+
+  <section class="process" aria-labelledby="process-title">
+    <div class="process-heading">
+      <span>Cómo iniciamos</span>
+      <h2 id="process-title">Cada necesidad tiene un punto de partida diferente</h2>
+      <p>
+        Definimos contigo si el alcance requiere consultoría energética, diseño eléctrico o una
+        solución energética específica.
+      </p>
+    </div>
+
+    <ol class="process-grid">
+      {processSteps.map((step, index) => (
+        <li class="process-step">
+          <span class="process-number" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <div class="services-next-step">
+    <div>
+      <span>Siguiente paso</span>
+      <p>Conversemos sobre tu necesidad y definamos el punto de partida.</p>
+    </div>
+    <a href="#contacto" class="btn services-next-step-btn">Conversemos sobre tu proyecto</a>
+  </div>
+</section>

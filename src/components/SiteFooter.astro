@@ -1,0 +1,15 @@
+---
+import BrandLogo from "./BrandLogo.astro";
+
+interface Props {
+  year?: number;
+}
+
+const { year = 2026 } = Astro.props;
+---
+
+<footer class="footer">
+  <BrandLogo loading="lazy" />
+
+  <p>7 VOLTIOS TECHNOLOGIES © {year}. Todos los derechos reservados.</p>
+</footer>

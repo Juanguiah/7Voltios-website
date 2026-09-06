@@ -1,0 +1,25 @@
+:root {
+  /* Identidad corporativa */
+  --blue: #061d3a;
+  --blue-dark: #031326;
+  --teal: #3fd6d0;
+  --teal-on-light: #0b7774;
+  --white: #ffffff;
+
+  /* Texto, superficies y estados */
+  --text: #d9e6f2;
+  --muted: #6b7c8f;
+  --green: #2f7d32;
+  --red: #ef4444;
+  --alert: #f59e0b;
+  --positive: #22c55e;
+  --card: rgba(255, 255, 255, 0.08);
+
+  /* Alias semánticos para las páginas futuras */
+  --color-brand-primary: var(--blue-dark);
+  --color-brand-secondary: var(--teal);
+  --color-surface-card: var(--card);
+  --color-state-alert: var(--alert);
+  --color-state-positive: var(--positive);
+  --content-max-width: 1440px;
+}

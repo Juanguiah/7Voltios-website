@@ -1,0 +1,43 @@
+---
+import {
+  EMAIL_CONTACT_URL,
+  WHATSAPP_CONTACT_URL,
+} from "./contactLinks";
+
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  whatsappHref?: string;
+  emailHref?: string;
+}
+
+const {
+  id = "contacto",
+  eyebrow = "Contáctenos",
+  title = "Hablemos sobre tu proyecto energético.",
+  description =
+    "Escríbenos por WhatsApp o correo electrónico y nos pondremos en contacto contigo.",
+  whatsappHref = WHATSAPP_CONTACT_URL,
+  emailHref = EMAIL_CONTACT_URL,
+} = Astro.props;
+---
+
+<section class="contact" id={id}>
+  <div>
+    <span>{eyebrow}</span>
+    <h2>{title}</h2>
+    <p>{description}</p>
+  </div>
+
+  <div class="contact-buttons">
+    <a
+      href={whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Escríbenos por WhatsApp. Se abre en una nueva pestaña"
+    >Escríbenos por WhatsApp</a>
+    <a href={emailHref}>proyectos@7voltios.com</a>
+  </div>
+</section>

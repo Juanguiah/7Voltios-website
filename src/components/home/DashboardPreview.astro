@@ -1,0 +1,82 @@
+<div
+  class="hero-card"
+  role="region"
+  aria-label="Ejemplo ilustrativo de evaluación energética"
+>
+  <div class="dashboard-heading">
+    <div class="dashboard-status" role="group" aria-label="Comparación de escenarios">
+      <span class="status-current" aria-current="true">Estado actual</span>
+      <span class="status-proposed">Escenario optimizado</span>
+    </div>
+  </div>
+
+  <dl class="kpi-grid">
+    <div class="kpi kpi-alert kpi-risk" data-current="Alto" data-proposed="Bajo">
+      <dt>Riesgo eléctrico</dt>
+      <dd>Alto</dd>
+    </div>
+
+    <div
+      class="kpi kpi-alert"
+      data-current="Sin definir"
+      data-proposed="8 cargadores"
+      data-value="8"
+      data-suffix=" cargadores"
+      data-duration="900"
+    >
+      <dt>Capacidad EV</dt>
+      <dd>Sin definir</dd>
+    </div>
+
+    <div
+      class="kpi kpi-alert"
+      data-current="Sin evaluar"
+      data-proposed="3.85 kWp"
+      data-value="3.85"
+      data-suffix=" kWp"
+      data-decimals="2"
+      data-duration="1600"
+    >
+      <dt>Potencia solar disponible</dt>
+      <dd>Sin evaluar</dd>
+    </div>
+
+    <div
+      class="kpi kpi-alert kpi-danger"
+      data-current="No cumple"
+      data-proposed="Conforme RETIE"
+    >
+      <dt>Cumplimiento normativo</dt>
+      <dd>No cumple</dd>
+    </div>
+
+    <div class="kpi kpi-alert" data-current="Pendiente" data-proposed="Evaluada">
+      <dt>Viabilidad</dt>
+      <dd>Pendiente</dd>
+    </div>
+
+    <div
+      class="kpi kpi-alert"
+      data-current="--"
+      data-proposed="2.9 años"
+      data-value="2.9"
+      data-suffix=" años"
+      data-decimals="1"
+      data-duration="2200"
+    >
+      <dt>Payback</dt>
+      <dd>--</dd>
+    </div>
+  </dl>
+
+  <div class="dashboard-footer">
+    <p class="dashboard-note">
+      Ejemplo ilustrativo. Los indicadores y resultados varían según el alcance de cada proyecto.
+    </p>
+    <button
+      class="dashboard-motion-toggle"
+      type="button"
+      aria-label="Pausar cambio automático de indicadores"
+    >Pausar</button>
+  </div>
+</div>

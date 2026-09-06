@@ -1,17 +1,4 @@
-:root {
-  --blue: #061d3a;
-  --blue-dark: #031326;
-  --teal: #3fd6d0;
-  --teal-on-light: #0b7774;
-  --white: #ffffff;
-  --text: #d9e6f2;
-  --muted: #6b7c8f;
-  --green: #2f7d32;
-  --red: #ef4444;
-  --alert: #f59e0b;
-  --positive: #22c55e;
-  --card: rgba(255, 255, 255, 0.08);
-}
+@import "./tokens.css";
 
 * {
   margin: 0;
@@ -298,7 +285,7 @@ img {
       rgba(3, 19, 38, 0.28) 55%,
       rgba(3, 19, 38, 0.16) 100%
     ),
-    url("../img/hero-brochure-scene.webp");
+    url("/img/hero-brochure-scene.webp");
   background-size: cover, cover;
   background-position: center, center right;
   background-repeat: no-repeat;
@@ -910,20 +897,20 @@ img {
 .service-card.consultoria::before {
   background-image:
     linear-gradient(180deg, rgba(3, 19, 38, 0.04), rgba(3, 19, 38, 0.25)),
-    url("../img/consultoria.webp");
+    url("/img/consultoria.webp");
 }
 
 .service-card.disenos::before {
   background-image:
     linear-gradient(180deg, rgba(3, 19, 38, 0.04), rgba(3, 19, 38, 0.25)),
-    url("../img/disenos.webp");
+    url("/img/disenos.webp");
   background-position: center 28%;
 }
 
 .service-card.proyectos::before {
   background-image:
     linear-gradient(180deg, rgba(3, 19, 38, 0.04), rgba(3, 19, 38, 0.25)),
-    url("../img/proyectos.webp");
+    url("/img/proyectos.webp");
 }
 
 .service-card h3,

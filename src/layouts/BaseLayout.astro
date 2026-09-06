@@ -1,0 +1,88 @@
+---
+import SEOHead from "../components/SEOHead.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  socialTitle?: string;
+  socialDescription?: string;
+  canonical?: string | URL;
+  image?: string | URL;
+  imageAlt?: string;
+  type?: "website" | "article" | "product";
+  noindex?: boolean;
+  bodyClass?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title = "7 VOLTIOS | Consultoría, Diseños Eléctricos y Soluciones Energéticas",
+  description = "Evaluamos y diseñamos infraestructura de carga para vehículos eléctricos destinada a personas, empresas y copropiedades en Colombia, con enfoque RETIE.",
+  socialTitle,
+  socialDescription,
+  canonical,
+  image,
+  imageAlt,
+  type,
+  noindex,
+  bodyClass,
+  structuredData,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#031326" />
+
+    <SEOHead
+      {title}
+      {description}
+      {socialTitle}
+      {socialDescription}
+      {canonical}
+      {image}
+      {imageAlt}
+      {type}
+      {noindex}
+      {structuredData}
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon-7v-16.png?v=20260727-master"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon-7v-32.png?v=20260727-master"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="/img/favicon-7v-48.png?v=20260727-master"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicon-7v-180.png?v=20260727-master"
+    />
+    <link rel="manifest" href="/site.webmanifest?v=20260727-master" />
+
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <slot />
+
+    <script>
+      import "../scripts/main.js";
+    </script>
+  </body>
+</html>

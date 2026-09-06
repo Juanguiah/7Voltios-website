@@ -1,0 +1,15 @@
+node_modules/
+.pnpm-store/
+.astro/
+dist/
+.vercel/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+*.log

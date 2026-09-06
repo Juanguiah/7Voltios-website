@@ -1,0 +1,52 @@
+---
+import BrandLogo from "./BrandLogo.astro";
+import { WHATSAPP_CONTACT_URL } from "./contactLinks";
+
+interface Props {
+  homeHref?: string;
+  servicesHref?: string;
+  whyHref?: string;
+  contactHref?: string;
+  whatsappHref?: string;
+}
+
+const {
+  homeHref = "/",
+  servicesHref = "#servicios",
+  whyHref = "#porque",
+  contactHref = "#contacto",
+  whatsappHref = WHATSAPP_CONTACT_URL,
+} = Astro.props;
+---
+
+<header class="header">
+  <BrandLogo href={homeHref} class="logo" />
+
+  <button
+    class="menu-toggle"
+    id="menu-toggle"
+    aria-label="Abrir menú"
+    aria-controls="primary-navigation"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav" id="primary-navigation" aria-label="Navegación principal">
+    <a href={servicesHref}>Servicios</a>
+    <a class="nav-why" href={whyHref}>¿Por qué <strong class="brand-name"><span class="brand-seven">7</span> VOLTIOS</strong>?</a>
+    <a href={contactHref}>Contacto</a>
+  </nav>
+
+  <a
+    class="header-btn"
+    href={whatsappHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Escríbenos por WhatsApp. Se abre en una nueva pestaña"
+  >
+    Escríbenos por WhatsApp
+  </a>
+</header>

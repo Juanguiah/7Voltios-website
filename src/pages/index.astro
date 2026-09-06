@@ -1,0 +1,51 @@
+---
+import ContactCTA from "../components/ContactCTA.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import EvaluationIntro from "../components/home/EvaluationIntro.astro";
+import HeroSection from "../components/home/HeroSection.astro";
+import ServicesSection from "../components/home/ServicesSection.astro";
+import WhySection from "../components/home/WhySection.astro";
+import { homeStructuredData } from "../data/homeSeo";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "7 VOLTIOS | Consultoría, Diseños Eléctricos y Soluciones Energéticas";
+const description =
+  "Evaluamos y diseñamos infraestructura de carga para vehículos eléctricos destinada a personas, empresas y copropiedades en Colombia, con enfoque RETIE.";
+const socialTitle = "7 VOLTIOS | Consultoría · Diseños · Soluciones Energéticas";
+const socialDescription =
+  "Consultoría, diseño e implementación de proyectos de movilidad eléctrica, energía solar e infraestructura eléctrica para empresas, copropiedades y viviendas.";
+---
+
+<BaseLayout
+  {title}
+  {description}
+  canonical="/"
+  {socialTitle}
+  {socialDescription}
+  image="/img/og-image-v2.png"
+  imageAlt="Infraestructura energética y cargador para vehículos eléctricos de 7 VOLTIOS"
+  structuredData={homeStructuredData}
+>
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href="/img/hero-brochure-scene.webp"
+    type="image/webp"
+    fetchpriority="high"
+  />
+
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+  <SiteHeader />
+
+  <main id="contenido-principal" tabindex="-1">
+    <HeroSection />
+    <EvaluationIntro />
+    <ServicesSection />
+    <WhySection />
+    <ContactCTA />
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

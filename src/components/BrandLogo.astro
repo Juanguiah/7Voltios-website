@@ -1,0 +1,42 @@
+---
+interface Props {
+  href?: string;
+  class?: string;
+  ariaLabel?: string;
+  loading?: "eager" | "lazy";
+  decoding?: "sync" | "async" | "auto";
+}
+
+const {
+  href,
+  class: className,
+  ariaLabel = "7 VOLTIOS, inicio",
+  loading,
+  decoding = "async",
+} = Astro.props;
+---
+
+{
+  href ? (
+    <a href={href} class={className} aria-label={ariaLabel}>
+      <img
+        src="/img/logo-maestro.png"
+        alt="7 VOLTIOS"
+        width="560"
+        height="379"
+        loading={loading}
+        decoding={decoding}
+      />
+    </a>
+  ) : (
+    <img
+      class={className}
+      src="/img/logo-maestro.png"
+      alt="7 VOLTIOS"
+      width="560"
+      height="379"
+      loading={loading}
+      decoding={decoding}
+    />
+  )
+}

@@ -1,0 +1,72 @@
+---
+import BrandLogo from "../components/BrandLogo.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Página no encontrada | 7 VOLTIOS";
+const description = "La página solicitada no está disponible.";
+---
+
+<BaseLayout {title} {description} canonical="/404/" noindex bodyClass="not-found-page">
+  <main class="not-found" id="contenido-principal">
+    <BrandLogo href="/" class="not-found-logo" />
+    <p class="not-found-code" aria-hidden="true">404</p>
+    <h1>Página no encontrada</h1>
+    <p>La dirección puede haber cambiado o ya no estar disponible.</p>
+    <a class="btn btn-primary" href="/">Volver al inicio</a>
+  </main>
+</BaseLayout>
+
+<style>
+  :global(.not-found-page) {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 50% 15%, rgba(63, 214, 208, 0.13), transparent 34rem),
+      var(--blue-dark);
+  }
+
+  .not-found {
+    width: min(100% - 40px, 720px);
+    min-height: 100vh;
+    margin-inline: auto;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  :global(.not-found-logo) {
+    display: block;
+    width: 150px;
+    margin-bottom: 10px;
+  }
+
+  :global(.not-found-logo img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .not-found-code {
+    color: var(--teal);
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: 0.06em;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .not-found > p:not(.not-found-code) {
+    max-width: 48ch;
+    color: var(--text);
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+
+  .not-found .btn {
+    margin-top: 12px;
+  }
+</style>

@@ -4,8 +4,8 @@ $ErrorActionPreference = "Stop"
 Add-Type -AssemblyName System.Drawing
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$sourcePath = Join-Path $repoRoot "img\logo-maestro.png"
-$outputDirectory = Join-Path $repoRoot "img"
+$sourcePath = Join-Path $repoRoot "public\img\logo-maestro.png"
+$outputDirectory = Join-Path $repoRoot "public\img"
 
 function New-RoundedRectanglePath {
     param(

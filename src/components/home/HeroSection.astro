@@ -1,0 +1,95 @@
+---
+import Button from "../Button.astro";
+import EnergyFlow from "../EnergyFlow.astro";
+import { EMAIL_CONTACT_URL, WHATSAPP_CONTACT_URL } from "../contactLinks";
+import DashboardPreview from "./DashboardPreview.astro";
+
+const questions = [
+  "¿Está preparada tu infraestructura para la llegada de vehículos eléctricos?",
+  "¿Quiere instalar un cargador para su vehículo eléctrico?",
+  "¿Su proyecto necesita certificación RETIE para entrar en operación?",
+  "¿Necesita un diseño eléctrico seguro, confiable y conforme al RETIE?",
+];
+---
+
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-kicker hero-kicker-desktop">
+      Consultoría energética · Diseños eléctricos · Soluciones energéticas
+    </span>
+    <span class="hero-kicker hero-kicker-mobile">
+      Consultoría · Diseño · Soluciones energéticas
+    </span>
+
+    <h1 class="hero-question">
+      {questions.map((question, index) => (
+        <span
+          class:list={["hero-question-option", { "is-active": index === 0 }]}
+          aria-hidden={index === 0 ? undefined : "true"}
+        >
+          {question}
+        </span>
+      ))}
+    </h1>
+
+    <div
+      class="hero-question-controls"
+      role="group"
+      aria-label="Navegar entre las preguntas principales"
+    >
+      <span class="hero-question-counter" aria-hidden="true">1 de 4</span>
+
+      <div class="hero-question-pagination">
+        {questions.map((_, index) => (
+          <button
+            class:list={["hero-question-selector", { "is-active": index === 0 }]}
+            type="button"
+            data-question-index={index}
+            aria-label={`Ver pregunta ${index + 1} de ${questions.length}`}
+            aria-current={index === 0 ? "true" : undefined}
+          ></button>
+        ))}
+      </div>
+
+      <button
+        class="hero-question-autoplay"
+        type="button"
+        aria-pressed="false"
+        aria-label="Pausar cambio automático de preguntas"
+      >
+        <svg class="hero-question-pause-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 5v14M16 5v14"></path>
+        </svg>
+        <svg class="hero-question-play-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m8 5 11 7-11 7V5Z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <p class="sr-only" id="hero-question-announcement" aria-live="polite"></p>
+
+    <p>
+      Evaluamos la capacidad disponible, los riesgos y las condiciones técnicas y normativas
+      para definir si tu infraestructura está preparada y qué necesita para crecer de forma
+      segura.
+    </p>
+
+    <div class="hero-actions">
+      <Button
+        href={WHATSAPP_CONTACT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Hablemos de tu proyecto por WhatsApp. Se abre en una nueva pestaña"
+      >
+        Hablemos de tu proyecto por WhatsApp
+      </Button>
+
+      <Button href={EMAIL_CONTACT_URL} variant="secondary">
+        Escríbenos por correo electrónico
+      </Button>
+    </div>
+  </div>
+
+  <DashboardPreview />
+  <EnergyFlow variant="hero" />
+</section>
