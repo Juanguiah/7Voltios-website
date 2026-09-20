@@ -1,6 +1,7 @@
 ---
 import SEOHead from "../components/SEOHead.astro";
 import "../styles/global.css";
+import "../styles/shell.css";
 
 export interface Props {
   title?: string;
@@ -17,8 +18,8 @@ export interface Props {
 }
 
 const {
-  title = "7 VOLTIOS | Consultoría, Diseños Eléctricos y Soluciones Energéticas",
-  description = "Evaluamos y diseñamos infraestructura de carga para vehículos eléctricos destinada a personas, empresas y copropiedades en Colombia, con enfoque RETIE.",
+  title = "7 VOLTIOS | Movilidad eléctrica y proyectos eléctricos",
+  description = "Cargadores, instalación e infraestructura para movilidad eléctrica y desarrollo de proyectos eléctricos con respaldo de ingeniería en Colombia.",
   socialTitle,
   socialDescription,
   canonical,
@@ -74,7 +75,7 @@ const {
       sizes="180x180"
       href="/img/favicon-7v-180.png?v=20260727-master"
     />
-    <link rel="manifest" href="/site.webmanifest?v=20260727-master" />
+    <link rel="manifest" href="/site.webmanifest?v=20260920-orientacion" />
 
     <slot name="head" />
   </head>

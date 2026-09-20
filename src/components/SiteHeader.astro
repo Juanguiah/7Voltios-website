@@ -1,52 +1,77 @@
 ---
 import BrandLogo from "./BrandLogo.astro";
-import { WHATSAPP_CONTACT_URL } from "./contactLinks";
+import { WHATSAPP_QUOTE_URL } from "./contactLinks";
 
 interface Props {
   homeHref?: string;
-  servicesHref?: string;
-  whyHref?: string;
-  contactHref?: string;
+  mobilityHref?: string;
+  engineeringHref?: string;
+  storeHref?: string;
   whatsappHref?: string;
 }
 
 const {
   homeHref = "/",
-  servicesHref = "#servicios",
-  whyHref = "#porque",
-  contactHref = "#contacto",
-  whatsappHref = WHATSAPP_CONTACT_URL,
+  mobilityHref = "/#movilidad-electrica",
+  engineeringHref = "/#desarrollo-proyectos-electricos",
+  storeHref = "/#tienda",
+  whatsappHref = WHATSAPP_QUOTE_URL,
 } = Astro.props;
 ---
 
 <header class="header">
-  <BrandLogo href={homeHref} class="logo" />
+  <div class="header__inner">
+    <BrandLogo href={homeHref} class="logo" />
 
-  <button
-    class="menu-toggle"
-    id="menu-toggle"
-    aria-label="Abrir menú"
-    aria-controls="primary-navigation"
-    aria-expanded="false"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+    <nav class="nav" id="primary-navigation" aria-label="Navegación principal">
+      <a class="nav-home" href={homeHref} aria-label="Inicio">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="m3 11 9-8 9 8"></path>
+          <path d="M5 10v10h5v-6h4v6h5V10"></path>
+        </svg>
+        <span class="nav-home__label">Inicio</span>
+        <span class="nav-home__tooltip" aria-hidden="true">Inicio</span>
+      </a>
+      <a href={mobilityHref}>Movilidad eléctrica</a>
+      <a href={engineeringHref}>Desarrollo de proyectos eléctricos</a>
+      <a class="nav-store" href={storeHref}>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <circle cx="9" cy="20" r="1"></circle>
+          <circle cx="18" cy="20" r="1"></circle>
+          <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6"></path>
+        </svg>
+        <span>Tienda</span>
+      </a>
+    </nav>
 
-  <nav class="nav" id="primary-navigation" aria-label="Navegación principal">
-    <a href={servicesHref}>Servicios</a>
-    <a class="nav-why" href={whyHref}>¿Por qué <strong class="brand-name"><span class="brand-seven">7</span> VOLTIOS</strong>?</a>
-    <a href={contactHref}>Contacto</a>
-  </nav>
+    <div class="header__actions">
+      <a
+        class="header-btn"
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Solicitar una cotización por WhatsApp. Se abre en una nueva pestaña"
+      >
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.6-4.7a8.5 8.5 0 1 1 15.9-4.3Z"></path>
+          <path d="M8.4 7.7c.4 3.9 3.5 7 7.4 7.5"></path>
+          <path d="m8.4 7.7 1.8-.7 1.2 2.2-1.1 1M15.8 15.2l.7-1.8-2.2-1.2-1 1.1"></path>
+        </svg>
+        <span class="header-btn__label">Cotizar</span>
+      </a>
 
-  <a
-    class="header-btn"
-    href={whatsappHref}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Escríbenos por WhatsApp. Se abre en una nueva pestaña"
-  >
-    Escríbenos por WhatsApp
-  </a>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
 </header>

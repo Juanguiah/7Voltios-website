@@ -1,13 +1,11 @@
-import { initDashboard } from "./dashboard.js";
 import { initHeroQuestions } from "./hero-questions.js";
 import { initNavigation } from "./navigation.js";
 import { initReveals } from "./reveals.js";
 
 function initializeSiteInteractions() {
-  initNavigation();
   initHeroQuestions();
+  initNavigation();
   initReveals();
-  initDashboard();
 }
 
 if (document.readyState === "loading") {

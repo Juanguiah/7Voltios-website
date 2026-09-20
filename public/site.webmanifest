@@ -1,7 +1,7 @@
 {
-  "name": "7 VOLTIOS Energía",
-  "short_name": "7V Energía",
-  "description": "Consultoría, diseños eléctricos y soluciones energéticas.",
+  "name": "7 VOLTIOS",
+  "short_name": "7 VOLTIOS",
+  "description": "Cargadores, infraestructura e ingeniería para movilidad eléctrica y proyectos eléctricos.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#031326",

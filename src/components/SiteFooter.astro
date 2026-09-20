@@ -3,13 +3,28 @@ import BrandLogo from "./BrandLogo.astro";
 
 interface Props {
   year?: number;
+  homeHref?: string;
+  aboutHref?: string;
+  contactHref?: string;
 }
 
-const { year = 2026 } = Astro.props;
+const {
+  year = 2026,
+  homeHref = "/",
+  aboutHref = "/#porque",
+  contactHref = "/#contacto",
+} = Astro.props;
 ---
 
 <footer class="footer">
-  <BrandLogo loading="lazy" />
+  <div class="footer__inner">
+    <BrandLogo href={homeHref} class="footer__logo" loading="lazy" />
 
-  <p>7 VOLTIOS TECHNOLOGIES © {year}. Todos los derechos reservados.</p>
+    <nav class="footer__nav" aria-label="Navegación secundaria">
+      <a href={aboutHref}>Nosotros</a>
+      <a href={contactHref}>Contacto</a>
+    </nav>
+
+    <p>7 VOLTIOS TECHNOLOGIES © {year}. Todos los derechos reservados.</p>
+  </div>
 </footer>

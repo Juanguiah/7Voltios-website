@@ -1,0 +1,123 @@
+---
+import Button from "../Button.astro";
+import { WHATSAPP_ENGINEERING_URL, WHATSAPP_PROJECT_URL } from "../contactLinks";
+---
+
+<section
+  class="engineering-projects-section"
+  id="desarrollo-proyectos-electricos"
+  aria-labelledby="engineering-projects-section-title"
+>
+  <div class="engineering-projects-section__inner">
+    <header class="engineering-projects-section__header">
+      <span class="engineering-projects-section__eyebrow">
+        DISEÑO Y DESARROLLO DE PROYECTOS ELÉCTRICOS
+      </span>
+      <h2 id="engineering-projects-section-title">
+        Diseñamos y desarrollamos proyectos eléctricos con respaldo técnico.
+      </h2>
+      <p class="engineering-projects-section__intro">
+        Convertimos las necesidades de una instalación en decisiones de ingeniería, documentación
+        técnica y soluciones preparadas para su desarrollo y legalización.
+      </p>
+    </header>
+
+    <ul class="engineering-projects-section__services" role="list">
+      <li class="engineering-projects-section__service-item">
+        <article class="engineering-service-card">
+          <div class="engineering-service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" focusable="false">
+              <path d="M8 6h32v36H8zM14 13h14M14 19h8M31 12v12M26 18h10"></path>
+              <path d="m17 35 14-14 4 4-14 14-6 2 2-6Z"></path>
+            </svg>
+          </div>
+          <h3>Diseños eléctricos</h3>
+          <p>
+            Desarrollamos la ingeniería y documentación técnica necesarias para ejecutar proyectos
+            eléctricos con claridad y criterio profesional.
+          </p>
+        </article>
+      </li>
+
+      <li class="engineering-projects-section__service-item">
+        <article class="engineering-service-card">
+          <div class="engineering-service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" focusable="false">
+              <path d="M12 5h24v38H12zM18 13h12M18 19h12M18 25h8"></path>
+              <path d="m19 34 4 4 8-9"></path>
+            </svg>
+          </div>
+          <h3>Gestión para certificación RETIE y legalización de proyectos</h3>
+          <p>
+            Acompañamos técnicamente el proceso de certificación RETIE y la legalización de
+            proyectos eléctricos.
+          </p>
+        </article>
+      </li>
+
+      <li class="engineering-projects-section__service-item">
+        <article class="engineering-service-card engineering-service-card--power-quality">
+          <div class="engineering-service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" focusable="false">
+              <path d="M5 38h38M8 8v30"></path>
+              <path d="M9 28h6l4-12 7 20 5-15 4 7h8"></path>
+            </svg>
+          </div>
+          <h3>Estudios de calidad de energía</h3>
+          <p>
+            Medimos, analizamos y diagnosticamos el comportamiento eléctrico de la instalación
+            para recomendar acciones basadas en información real.
+          </p>
+          <ol
+            class="engineering-service-card__process"
+            aria-label="Proceso de diagnóstico de calidad de energía"
+          >
+            <li>Medimos</li>
+            <li>Analizamos</li>
+            <li>Diagnosticamos</li>
+            <li>Recomendamos</li>
+          </ol>
+        </article>
+      </li>
+
+      <li class="engineering-projects-section__service-item">
+        <article class="engineering-service-card">
+          <div class="engineering-service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" focusable="false">
+              <path d="M7 9h14v14H7zM27 25h14v14H27z"></path>
+              <path d="M21 16h9a5 5 0 0 1 5 5v4M27 32h-9a5 5 0 0 1-5-5v-4"></path>
+              <path d="m31 21 4 4 4-4M17 27l-4-4-4 4"></path>
+            </svg>
+          </div>
+          <h3>Desarrollo de proyectos eléctricos</h3>
+          <p>
+            Integramos diseño, coordinación técnica y desarrollo para convertir una necesidad
+            eléctrica en una solución consistente.
+          </p>
+          <a
+            class="engineering-service-card__link"
+            href={WHATSAPP_PROJECT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Desarrollar un proyecto eléctrico por WhatsApp. Se abre en una nueva pestaña"
+          >Desarrollar un proyecto eléctrico <span aria-hidden="true">→</span></a>
+        </article>
+      </li>
+    </ul>
+
+    <div class="engineering-projects-section__actions">
+      <Button
+        class="engineering-projects-section__action"
+        href={WHATSAPP_ENGINEERING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Solicitar un servicio de ingeniería por WhatsApp. Se abre en una nueva pestaña"
+      >Solicitar un servicio de ingeniería</Button>
+      <Button
+        class="engineering-projects-section__action engineering-projects-section__action--secondary"
+        href="#tienda"
+        variant="secondary"
+      >Conocer tecnología para movilidad eléctrica</Button>
+    </div>
+  </div>
+</section>

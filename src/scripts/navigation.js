@@ -57,7 +57,7 @@ export function initNavigation() {
     }
   });
 
-  const desktopNavigation = window.matchMedia("(min-width: 981px)");
+  const desktopNavigation = window.matchMedia("(min-width: 1261px)");
   const closeMenuOnDesktop = (event) => {
     if (event.matches) {
       setMobileMenu(false);

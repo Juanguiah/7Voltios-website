@@ -1,0 +1,114 @@
+---
+import {
+  WHATSAPP_CAPACITY_STUDY_URL,
+  WHATSAPP_INFRASTRUCTURE_URL,
+  WHATSAPP_INSTALLATION_URL,
+} from "../contactLinks";
+---
+
+<section
+  class="mobility-section"
+  id="movilidad-electrica"
+  aria-labelledby="mobility-section-title"
+>
+  <div class="mobility-section__inner">
+    <header class="mobility-section__header">
+      <span class="mobility-section__eyebrow">MOVILIDAD ELÉCTRICA</span>
+      <h2 id="mobility-section-title">
+        Soluciones de carga que empiezan por entender tu infraestructura.
+      </h2>
+      <p class="mobility-section__intro">
+        Suministramos equipos y desarrollamos la instalación y la ingeniería necesarias para
+        cargar de forma segura, confiable y adecuada a cada espacio.
+      </p>
+    </header>
+
+    <ul class="mobility-section__services" role="list">
+      <li class="mobility-section__service-item">
+        <article class="mobility-service-card">
+          <div class="mobility-service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" focusable="false">
+              <rect x="10" y="5" width="24" height="38" rx="5"></rect>
+              <path d="M17 13h10M22 19l-4 7h5l-2 8 7-11h-5l3-4"></path>
+              <path d="M34 16h3a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-3"></path>
+            </svg>
+          </div>
+          <h3>Instalación de cargadores</h3>
+          <p>
+            Instalamos cargadores para vehículos eléctricos en hogares, empresas y copropiedades,
+            integrando las protecciones y los elementos asociados.
+          </p>
+          <a
+            class="mobility-service-card__link"
+            href={WHATSAPP_INSTALLATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Cotizar instalación por WhatsApp. Se abre en una nueva pestaña"
+          >Cotizar instalación <span aria-hidden="true">→</span></a>
+        </article>
+      </li>
+
+      <li class="mobility-section__service-item">
+        <article class="mobility-service-card">
+          <div class="mobility-service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" focusable="false">
+              <path d="M8 35a17 17 0 1 1 32 0"></path>
+              <path d="M13 35h22M24 35l9-12"></path>
+              <path d="M13 22l4 3M24 18v5M35 22l-4 3"></path>
+            </svg>
+          </div>
+          <h3>Estudios de capacidad y viabilidad para carga de vehículos eléctricos</h3>
+          <p>
+            Evaluamos la capacidad disponible y las condiciones técnicas de la instalación antes
+            de definir la solución de carga.
+          </p>
+          <a
+            class="mobility-service-card__link"
+            href={WHATSAPP_CAPACITY_STUDY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Solicitar estudio de capacidad por WhatsApp. Se abre en una nueva pestaña"
+          >Solicitar estudio de capacidad <span aria-hidden="true">→</span></a>
+        </article>
+      </li>
+
+      <li class="mobility-section__service-item">
+        <article class="mobility-service-card">
+          <div class="mobility-service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" focusable="false">
+              <rect x="5" y="18" width="12" height="20" rx="3"></rect>
+              <rect x="31" y="18" width="12" height="20" rx="3"></rect>
+              <path d="M11 18V9h26v9M24 9v29M17 28h14"></path>
+              <path d="M10 24h2M36 24h2M22 31l-2 4h4l-1 4 5-7h-4l1-1"></path>
+            </svg>
+          </div>
+          <h3>Infraestructura eléctrica para sistemas de carga</h3>
+          <p>
+            Diseñamos y desarrollamos la infraestructura eléctrica necesaria para uno o múltiples
+            puntos de carga.
+          </p>
+          <a
+            class="mobility-service-card__link"
+            href={WHATSAPP_INFRASTRUCTURE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Cotizar infraestructura de carga por WhatsApp. Se abre en una nueva pestaña"
+          >Cotizar infraestructura de carga <span aria-hidden="true">→</span></a>
+        </article>
+      </li>
+    </ul>
+
+    <div class="mobility-section__related" role="group" aria-label="Servicios relacionados">
+      <p>
+        ¿Aún no tienes cargador?
+        <a href="#tienda">Conoce nuestros equipos.</a>
+      </p>
+      <p>
+        ¿Tu proyecto requiere modificaciones importantes?
+        <a href="#desarrollo-proyectos-electricos">
+          Conoce nuestros servicios de desarrollo de proyectos eléctricos.
+        </a>
+      </p>
+    </div>
+  </div>
+</section>

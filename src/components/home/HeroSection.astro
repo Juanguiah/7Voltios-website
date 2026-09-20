@@ -1,95 +1,119 @@
 ---
 import Button from "../Button.astro";
 import EnergyFlow from "../EnergyFlow.astro";
-import { EMAIL_CONTACT_URL, WHATSAPP_CONTACT_URL } from "../contactLinks";
-import DashboardPreview from "./DashboardPreview.astro";
-
-const questions = [
-  "¿Está preparada tu infraestructura para la llegada de vehículos eléctricos?",
-  "¿Quiere instalar un cargador para su vehículo eléctrico?",
-  "¿Su proyecto necesita certificación RETIE para entrar en operación?",
-  "¿Necesita un diseño eléctrico seguro, confiable y conforme al RETIE?",
-];
+import { WHATSAPP_INSTALLATION_URL } from "../contactLinks";
 ---
 
-<section class="hero">
-  <div class="hero-text">
-    <span class="hero-kicker hero-kicker-desktop">
-      Consultoría energética · Diseños eléctricos · Soluciones energéticas
-    </span>
-    <span class="hero-kicker hero-kicker-mobile">
-      Consultoría · Diseño · Soluciones energéticas
-    </span>
+<section class="home-hero" aria-labelledby="home-hero-title">
+  <div class="home-hero__inner">
+    <div class="home-hero__content">
+      <span class="home-hero__eyebrow">
+        Movilidad eléctrica · Desarrollo de proyectos eléctricos
+      </span>
 
-    <h1 class="hero-question">
-      {questions.map((question, index) => (
-        <span
-          class:list={["hero-question-option", { "is-active": index === 0 }]}
-          aria-hidden={index === 0 ? undefined : "true"}
+      <h1 id="home-hero-title">
+        Cargadores, infraestructura e ingeniería para <strong>movilidad eléctrica.</strong>
+      </h1>
+
+      <p class="home-hero__lead">
+        Equipos, instalación y soluciones de ingeniería para hogares, empresas y copropiedades.
+      </p>
+
+      <div class="home-hero__questions" aria-label="Necesidades que podemos ayudarte a resolver">
+        <span class="home-hero__questions-label">Podemos ayudarte a resolver</span>
+
+        <div class="hero-question">
+          <p class="hero-question-option is-active">
+            ¿Está preparada tu infraestructura para la llegada de vehículos eléctricos?
+          </p>
+          <p class="hero-question-option" aria-hidden="true">
+            ¿Quieres instalar un cargador para tu vehículo eléctrico?
+          </p>
+          <p class="hero-question-option" aria-hidden="true">
+            ¿Tu proyecto necesita certificación RETIE para entrar en operación?
+          </p>
+          <p class="hero-question-option" aria-hidden="true">
+            ¿Necesitas un diseño eléctrico seguro, confiable y conforme al RETIE?
+          </p>
+        </div>
+
+        <div
+          class="hero-question-controls"
+          role="group"
+          aria-label="Navegar entre las preguntas principales"
         >
-          {question}
-        </span>
-      ))}
-    </h1>
+          <span class="hero-question-counter" aria-hidden="true">1 de 4</span>
 
-    <div
-      class="hero-question-controls"
-      role="group"
-      aria-label="Navegar entre las preguntas principales"
-    >
-      <span class="hero-question-counter" aria-hidden="true">1 de 4</span>
+          <div class="hero-question-pagination">
+            <button
+              class="hero-question-selector is-active"
+              type="button"
+              data-question-index="0"
+              aria-label="Ver pregunta 1 de 4"
+              aria-current="true"
+            ></button>
+            <button
+              class="hero-question-selector"
+              type="button"
+              data-question-index="1"
+              aria-label="Ver pregunta 2 de 4"
+            ></button>
+            <button
+              class="hero-question-selector"
+              type="button"
+              data-question-index="2"
+              aria-label="Ver pregunta 3 de 4"
+            ></button>
+            <button
+              class="hero-question-selector"
+              type="button"
+              data-question-index="3"
+              aria-label="Ver pregunta 4 de 4"
+            ></button>
+          </div>
 
-      <div class="hero-question-pagination">
-        {questions.map((_, index) => (
           <button
-            class:list={["hero-question-selector", { "is-active": index === 0 }]}
+            class="hero-question-autoplay"
             type="button"
-            data-question-index={index}
-            aria-label={`Ver pregunta ${index + 1} de ${questions.length}`}
-            aria-current={index === 0 ? "true" : undefined}
-          ></button>
-        ))}
+            aria-pressed="false"
+            aria-label="Pausar cambio automático de preguntas"
+          >
+            <svg class="hero-question-pause-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14M16 5v14"></path>
+            </svg>
+            <svg class="hero-question-play-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m8 5 11 7-11 7V5Z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <p class="sr-only" id="hero-question-announcement" aria-live="polite"></p>
       </div>
 
-      <button
-        class="hero-question-autoplay"
-        type="button"
-        aria-pressed="false"
-        aria-label="Pausar cambio automático de preguntas"
-      >
-        <svg class="hero-question-pause-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M8 5v14M16 5v14"></path>
-        </svg>
-        <svg class="hero-question-play-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m8 5 11 7-11 7V5Z"></path>
-        </svg>
-      </button>
+      <div class="home-hero__actions" role="group" aria-label="Acciones principales">
+        <Button href="#tienda">Ver Tienda</Button>
+        <Button
+          href={WHATSAPP_INSTALLATION_URL}
+          variant="secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Cotizar instalación por WhatsApp. Se abre en una nueva pestaña"
+        >Cotizar instalación</Button>
+      </div>
+
+      <a class="home-hero__engineering-link" href="#desarrollo-proyectos-electricos">
+        Desarrollo de Proyectos Eléctricos <span aria-hidden="true">→</span>
+      </a>
+
+      <ul class="home-hero__proof" aria-label="Capacidades principales">
+        <li>Suministro de equipos</li>
+        <li>Instalación especializada</li>
+        <li>Ingeniería eléctrica</li>
+      </ul>
     </div>
 
-    <p class="sr-only" id="hero-question-announcement" aria-live="polite"></p>
-
-    <p>
-      Evaluamos la capacidad disponible, los riesgos y las condiciones técnicas y normativas
-      para definir si tu infraestructura está preparada y qué necesita para crecer de forma
-      segura.
-    </p>
-
-    <div class="hero-actions">
-      <Button
-        href={WHATSAPP_CONTACT_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Hablemos de tu proyecto por WhatsApp. Se abre en una nueva pestaña"
-      >
-        Hablemos de tu proyecto por WhatsApp
-      </Button>
-
-      <Button href={EMAIL_CONTACT_URL} variant="secondary">
-        Escríbenos por correo electrónico
-      </Button>
-    </div>
+    <div class="home-hero__visual" aria-hidden="true"></div>
   </div>
 
-  <DashboardPreview />
   <EnergyFlow variant="hero" />
 </section>

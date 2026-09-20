@@ -2,19 +2,22 @@
 import ContactCTA from "../components/ContactCTA.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
-import EvaluationIntro from "../components/home/EvaluationIntro.astro";
+import EngineeringProjectsSection from "../components/home/EngineeringProjectsSection.astro";
 import HeroSection from "../components/home/HeroSection.astro";
-import ServicesSection from "../components/home/ServicesSection.astro";
+import MobilitySection from "../components/home/MobilitySection.astro";
+import PathwaysSection from "../components/home/PathwaysSection.astro";
+import ProductCategoriesSection from "../components/home/ProductCategoriesSection.astro";
 import WhySection from "../components/home/WhySection.astro";
 import { homeStructuredData } from "../data/homeSeo";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/home.css";
 
-const title = "7 VOLTIOS | Consultoría, Diseños Eléctricos y Soluciones Energéticas";
+const title = "7 VOLTIOS | Movilidad eléctrica y proyectos eléctricos";
 const description =
-  "Evaluamos y diseñamos infraestructura de carga para vehículos eléctricos destinada a personas, empresas y copropiedades en Colombia, con enfoque RETIE.";
-const socialTitle = "7 VOLTIOS | Consultoría · Diseños · Soluciones Energéticas";
+  "Cargadores, instalación e infraestructura para movilidad eléctrica y desarrollo de proyectos eléctricos con respaldo de ingeniería en Colombia.";
+const socialTitle = "7 VOLTIOS | Movilidad eléctrica y proyectos eléctricos";
 const socialDescription =
-  "Consultoría, diseño e implementación de proyectos de movilidad eléctrica, energía solar e infraestructura eléctrica para empresas, copropiedades y viviendas.";
+  "Integramos tecnología, productos e ingeniería para desarrollar soluciones de movilidad eléctrica y proyectos eléctricos.";
 ---
 
 <BaseLayout
@@ -24,7 +27,7 @@ const socialDescription =
   {socialTitle}
   {socialDescription}
   image="/img/og-image-v2.png"
-  imageAlt="Infraestructura energética y cargador para vehículos eléctricos de 7 VOLTIOS"
+  imageAlt="Infraestructura de carga e ingeniería eléctrica de 7 VOLTIOS"
   structuredData={homeStructuredData}
 >
   <link
@@ -41,8 +44,10 @@ const socialDescription =
 
   <main id="contenido-principal" tabindex="-1">
     <HeroSection />
-    <EvaluationIntro />
-    <ServicesSection />
+    <PathwaysSection />
+    <MobilitySection />
+    <EngineeringProjectsSection />
+    <ProductCategoriesSection />
     <WhySection />
     <ContactCTA />
   </main>
