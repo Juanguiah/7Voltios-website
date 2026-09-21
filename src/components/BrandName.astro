@@ -1,0 +1,21 @@
+---
+interface Props {
+  technologies?: boolean;
+  surface?: "dark" | "light";
+  class?: string;
+}
+
+const {
+  technologies = false,
+  surface = "dark",
+  class: className,
+} = Astro.props;
+---
+
+<span
+  class:list={[
+    "brand-name",
+    surface === "light" && "brand-name--on-light",
+    className,
+  ]}
+><span class="brand-seven">7</span> VOLTIOS{technologies ? " TECHNOLOGIES" : ""}</span>

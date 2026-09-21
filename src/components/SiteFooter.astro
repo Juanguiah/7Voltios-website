@@ -1,5 +1,6 @@
 ---
 import BrandLogo from "./BrandLogo.astro";
+import BrandName from "./BrandName.astro";
 
 interface Props {
   year?: number;
@@ -34,6 +35,6 @@ const {
       <a href={contactHref}>Contáctanos</a>
     </nav>
 
-    <p>7 VOLTIOS TECHNOLOGIES © {year}. Todos los derechos reservados.</p>
+    <p><BrandName technologies /> © {year}. Todos los derechos reservados.</p>
   </div>
 </footer>

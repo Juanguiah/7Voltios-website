@@ -181,13 +181,20 @@ img {
   color: var(--teal);
 }
 
-.brand-seven {
-  color: var(--teal);
-  font: inherit;
+.brand-name {
+  --brand-seven-color: var(--teal);
+
+  font-weight: 900;
+  white-space: nowrap;
 }
 
-.brand-name {
-  font-weight: 900;
+.brand-name--on-light {
+  --brand-seven-color: var(--teal-on-light);
+}
+
+.brand-seven {
+  color: var(--brand-seven-color);
+  font: inherit;
 }
 
 .nav a.nav-why {
