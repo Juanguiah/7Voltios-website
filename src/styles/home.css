@@ -1133,10 +1133,6 @@
     gap: 10px 14px;
   }
 
-  .mobility-section__sectors li:last-child {
-    grid-column: 1 / -1;
-  }
-
   .mobility-section__services,
   .product-categories-section__categories,
   .engineering-projects-section__services {
