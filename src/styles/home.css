@@ -539,6 +539,54 @@
   color: rgba(217, 230, 242, 0.88);
 }
 
+.mobility-section__sectors {
+  display: flex;
+  margin-top: 32px;
+  align-items: center;
+  gap: 22px;
+  padding: 16px 20px;
+  border-block: 1px solid rgba(63, 214, 208, 0.2);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.mobility-section__sectors h3 {
+  flex: 0 0 auto;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.mobility-section__sectors ul {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 9px 22px;
+  list-style: none;
+}
+
+.mobility-section__sectors li {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(235, 244, 252, 0.9);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.mobility-section__sectors li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 9px rgba(63, 214, 208, 0.58);
+}
+
 .mobility-section__services,
 .product-categories-section__categories,
 .engineering-projects-section__services {
@@ -550,6 +598,10 @@
 
 .mobility-section__services {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mobility-section__sectors + .mobility-section__services {
+  margin-top: 32px;
 }
 
 .mobility-section__service-item,
@@ -994,6 +1046,12 @@
     grid-row: 4;
   }
 
+  .mobility-section__sectors {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
   .mobility-section__services {
     grid-template-columns: 1fr;
   }
@@ -1062,6 +1120,21 @@
 
   .mobility-section__header::after {
     background-position: 70% center;
+  }
+
+  .mobility-section__sectors {
+    padding: 16px 2px;
+  }
+
+  .mobility-section__sectors ul {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+  }
+
+  .mobility-section__sectors li:last-child {
+    grid-column: 1 / -1;
   }
 
   .mobility-section__services,

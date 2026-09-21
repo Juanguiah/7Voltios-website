@@ -86,7 +86,7 @@ export const homeStructuredData = {
         "Infraestructura eléctrica para sistemas de carga",
       ],
       description:
-        "Instalación, estudios de capacidad e infraestructura de carga para vehículos eléctricos en hogares, empresas y copropiedades.",
+        "Instalación, estudios de capacidad e infraestructura de carga para vehículos eléctricos en viviendas, copropiedades, comercios, hoteles, empresas, parqueaderos y flotas.",
       url: "https://7voltios.com/#movilidad-electrica",
       provider: {
         "@id": "https://7voltios.com/#organization",

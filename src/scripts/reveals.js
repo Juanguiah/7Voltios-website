@@ -3,6 +3,7 @@ const REVEAL_GROUPS = [
   ".pathways__heading",
   ".pathway-card",
   ".mobility-section__header",
+  ".mobility-section__sectors",
   ".mobility-service-card",
   ".mobility-section__actions",
   ".product-categories-section__header",
