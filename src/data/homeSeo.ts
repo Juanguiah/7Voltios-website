@@ -22,7 +22,7 @@ export const homeStructuredData = {
       knowsAbout: [
         "Cargadores para vehículos eléctricos",
         "Cargadores Wallbox y portátiles",
-        "Adaptadores y accesorios para carga de vehículos eléctricos",
+        "Adaptadores y conectores para carga de vehículos eléctricos",
         "Protecciones y sistemas de gestión de carga",
         "Instalación de cargadores para vehículos eléctricos",
         "Estudios de capacidad y viabilidad para carga de vehículos eléctricos",
@@ -38,7 +38,7 @@ export const homeStructuredData = {
         itemListElement: [
           { "@type": "OfferCatalog", name: "Cargadores portátiles" },
           { "@type": "OfferCatalog", name: "Wallbox" },
-          { "@type": "OfferCatalog", name: "Adaptadores" },
+          { "@type": "OfferCatalog", name: "Adaptadores y conectores de carga" },
           { "@type": "OfferCatalog", name: "Accesorios de carga" },
           { "@type": "OfferCatalog", name: "Protecciones especializadas" },
           { "@type": "OfferCatalog", name: "Sistemas de gestión y medición de carga" },
