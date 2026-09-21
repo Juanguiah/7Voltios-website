@@ -60,6 +60,10 @@
   text-transform: uppercase;
 }
 
+.home-hero__eyebrow--mobile {
+  display: none;
+}
+
 .pathways__heading > span {
   display: block;
   color: var(--teal);
@@ -369,9 +373,15 @@
     padding: 38px 5% 30px;
   }
 
-  .home-hero__eyebrow {
-    font-size: 13px;
-    letter-spacing: 0.065em;
+  .home-hero__eyebrow--desktop {
+    display: none;
+  }
+
+  .home-hero__eyebrow--mobile {
+    display: block;
+    font-size: clamp(10.5px, 3.1vw, 12px);
+    letter-spacing: 0.025em;
+    white-space: nowrap;
   }
 
   .home-hero h1 {
