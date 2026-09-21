@@ -4,6 +4,9 @@ import BrandLogo from "./BrandLogo.astro";
 interface Props {
   year?: number;
   homeHref?: string;
+  storeHref?: string;
+  mobilityHref?: string;
+  engineeringHref?: string;
   aboutHref?: string;
   contactHref?: string;
 }
@@ -11,6 +14,9 @@ interface Props {
 const {
   year = 2026,
   homeHref = "/",
+  storeHref = "/#tienda",
+  mobilityHref = "/#movilidad-electrica",
+  engineeringHref = "/#desarrollo-proyectos-electricos",
   aboutHref = "/#porque",
   contactHref = "/#contacto",
 } = Astro.props;
@@ -21,8 +27,11 @@ const {
     <BrandLogo href={homeHref} class="footer__logo" loading="lazy" />
 
     <nav class="footer__nav" aria-label="Navegación secundaria">
+      <a href={storeHref}>Tienda</a>
+      <a href={mobilityHref}>Movilidad eléctrica</a>
+      <a href={engineeringHref}>Proyectos eléctricos</a>
       <a href={aboutHref}>Nosotros</a>
-      <a href={contactHref}>Contacto</a>
+      <a href={contactHref}>Contáctanos</a>
     </nav>
 
     <p>7 VOLTIOS TECHNOLOGIES © {year}. Todos los derechos reservados.</p>

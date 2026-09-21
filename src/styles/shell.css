@@ -321,8 +321,9 @@
 
 .footer__nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(20px, 3vw, 42px);
+  gap: 10px clamp(16px, 2vw, 30px);
 }
 
 .footer__nav a {

@@ -1,9 +1,7 @@
-import { initHeroQuestions } from "./hero-questions.js";
 import { initNavigation } from "./navigation.js";
 import { initReveals } from "./reveals.js";
 
 function initializeSiteInteractions() {
-  initHeroQuestions();
   initNavigation();
   initReveals();
 }
