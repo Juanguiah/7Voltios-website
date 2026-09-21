@@ -1,5 +1,6 @@
 ---
 import BrandLogo from "./BrandLogo.astro";
+import StoreIcon from "./StoreIcon.astro";
 import { WHATSAPP_QUOTE_URL } from "./contactLinks";
 
 interface Props {
@@ -35,10 +36,7 @@ const {
         <span class="nav-home__tooltip" aria-hidden="true">Inicio</span>
       </a>
       <a class="nav-store" href={storeHref}>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-          <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"></path>
-          <path d="m13.2 7-4 6h3.2l-1.2 4 4.2-6h-3.2l1-4Z"></path>
-        </svg>
+        <StoreIcon />
         <span>Tienda</span>
       </a>
       <a href={mobilityHref}>Movilidad eléctrica</a>
