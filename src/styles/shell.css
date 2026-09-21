@@ -140,6 +140,19 @@
   background: rgba(63, 214, 208, 0.14);
 }
 
+.nav-store svg {
+  filter: drop-shadow(0 0 5px rgba(63, 214, 208, 0.28));
+  transition:
+    filter 0.22s ease,
+    transform 0.22s ease;
+}
+
+.nav-store:hover svg,
+.nav-store:focus-visible svg {
+  filter: drop-shadow(0 0 8px rgba(118, 255, 247, 0.56));
+  transform: rotate(4deg) scale(1.04);
+}
+
 .header-btn {
   display: inline-flex;
   min-height: 44px;
@@ -358,5 +371,14 @@
 @media (prefers-reduced-motion: reduce) {
   .nav-home__tooltip {
     transition: none;
+  }
+
+  .nav-store svg {
+    transition: none;
+  }
+
+  .nav-store:hover svg,
+  .nav-store:focus-visible svg {
+    transform: none;
   }
 }

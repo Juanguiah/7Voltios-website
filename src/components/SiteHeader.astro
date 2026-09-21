@@ -7,6 +7,7 @@ interface Props {
   mobilityHref?: string;
   engineeringHref?: string;
   storeHref?: string;
+  aboutHref?: string;
   whatsappHref?: string;
 }
 
@@ -15,6 +16,7 @@ const {
   mobilityHref = "/#movilidad-electrica",
   engineeringHref = "/#desarrollo-proyectos-electricos",
   storeHref = "/#tienda",
+  aboutHref = "/#porque",
   whatsappHref = WHATSAPP_QUOTE_URL,
 } = Astro.props;
 ---
@@ -34,11 +36,11 @@ const {
       </a>
       <a href={mobilityHref}>Movilidad eléctrica</a>
       <a href={engineeringHref}>Desarrollo de proyectos eléctricos</a>
+      <a href={aboutHref}>Nosotros</a>
       <a class="nav-store" href={storeHref}>
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-          <circle cx="9" cy="20" r="1"></circle>
-          <circle cx="18" cy="20" r="1"></circle>
-          <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6"></path>
+          <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"></path>
+          <path d="m13.2 7-4 6h3.2l-1.2 4 4.2-6h-3.2l1-4Z"></path>
         </svg>
         <span>Tienda</span>
       </a>
