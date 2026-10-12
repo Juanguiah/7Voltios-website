@@ -43,6 +43,10 @@
   gap: clamp(24px, 2vw, 40px);
 }
 
+.nav--mobile {
+  display: none;
+}
+
 .nav a {
   display: inline-flex;
   min-height: 44px;
@@ -233,35 +237,16 @@
     color: var(--teal);
   }
 
-  .nav.active .nav-home {
-    width: auto;
-    justify-content: flex-start;
-    gap: 10px;
-    border-color: transparent;
-    border-radius: 10px;
-    background: transparent;
-  }
-
-  .nav.active .nav-home__label {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-  }
-
-  .nav.active .nav-home__tooltip {
-    display: none;
-  }
-
   .nav.active .nav-store {
-    color: var(--white) !important;
+    border: 1px solid rgba(63, 214, 208, 0.28);
+    background: rgba(63, 214, 208, 0.08);
+    color: var(--teal) !important;
   }
 
   .nav.active .nav-store:hover,
   .nav.active .nav-store:focus-visible {
+    border-color: rgba(118, 255, 247, 0.52);
+    background: rgba(63, 214, 208, 0.14);
     color: var(--teal) !important;
   }
 }

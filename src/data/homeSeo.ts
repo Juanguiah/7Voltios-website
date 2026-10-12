@@ -1,3 +1,5 @@
+import { homeFaqs } from "./faqs";
+
 export const homeStructuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -116,6 +118,20 @@ export const homeStructuredData = {
         "@type": "Country",
         name: "Colombia",
       },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://7voltios.com/#preguntas-frecuentes",
+      url: "https://7voltios.com/#preguntas-frecuentes",
+      inLanguage: "es-CO",
+      mainEntity: homeFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
     },
   ],
 };

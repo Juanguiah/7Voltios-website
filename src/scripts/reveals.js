@@ -17,8 +17,12 @@ const REVEAL_GROUPS = [
   ".service-card",
   ".process-step",
   ".services-next-step",
-  ".why > div:first-child",
+  ".about-copy",
+  ".why-disclosure",
   ".why-item",
+  ".faq-section__header",
+  ".faq-item",
+  ".faq-section__cta",
   ".contact > div"
 ];
 

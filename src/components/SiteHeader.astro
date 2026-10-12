@@ -17,7 +17,7 @@ const {
   mobilityHref = "/#movilidad-electrica",
   engineeringHref = "/#desarrollo-proyectos-electricos",
   storeHref = "/#tienda",
-  aboutHref = "/#porque",
+  aboutHref = "/#nosotros",
   whatsappHref = WHATSAPP_QUOTE_URL,
 } = Astro.props;
 ---
@@ -26,7 +26,7 @@ const {
   <div class="header__inner">
     <BrandLogo href={homeHref} class="logo" />
 
-    <nav class="nav" id="primary-navigation" aria-label="Navegación principal">
+    <nav class="nav nav--desktop" aria-label="Navegación principal">
       <a class="nav-home" href={homeHref} aria-label="Inicio">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
           <path d="m3 11 9-8 9 8"></path>
@@ -35,11 +35,26 @@ const {
         <span class="nav-home__label">Inicio</span>
         <span class="nav-home__tooltip" aria-hidden="true">Inicio</span>
       </a>
+      <a href={mobilityHref}>Movilidad eléctrica</a>
+      <a href={engineeringHref}>Desarrollo de proyectos eléctricos</a>
       <a class="nav-store" href={storeHref}>
         <StoreIcon />
         <span>Tienda</span>
       </a>
-      <a href={mobilityHref}>Movilidad eléctrica</a>
+      <a href={aboutHref}>Nosotros</a>
+    </nav>
+
+    <nav
+      class="nav nav--mobile"
+      id="primary-navigation"
+      aria-label="Navegación móvil"
+    >
+      <a class="nav-store" href={storeHref}>
+        <StoreIcon />
+        <span>Tienda</span>
+      </a>
+      <a href={homeHref}>Inicio</a>
+      <a href={mobilityHref}>Soluciones de movilidad eléctrica</a>
       <a href={engineeringHref}>Desarrollo de proyectos eléctricos</a>
       <a href={aboutHref}>Nosotros</a>
     </nav>

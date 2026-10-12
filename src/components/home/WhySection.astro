@@ -4,21 +4,45 @@ import EnergyFlow from "../EnergyFlow.astro";
 import TrustStrip from "../TrustStrip.astro";
 ---
 
-<section class="why" id="porque">
-  <div>
-    <span class="why-kicker">
-      ¿Por qué <BrandName />?
-    </span>
-    <h2>Tecnología integrada con respaldo de ingeniería.</h2>
+<section class="why" id="nosotros" aria-labelledby="about-title">
+  <div class="about-copy">
+    <span class="why-kicker">Nosotros</span>
+    <h2 id="about-title">Ingeniería para integrar tecnología con criterio.</h2>
     <p>
       <BrandName /> es una empresa de ingeniería especializada en soluciones de movilidad eléctrica
       y en el desarrollo de proyectos eléctricos. Cada solución se desarrolla con dirección técnica
       directa, análisis riguroso y conocimiento especializado para seleccionar, diseñar e integrar
       tecnología segura, confiable y adecuada para cada proyecto.
     </p>
+    <p>
+      La experiencia que respalda a <BrandName /> reúne ingeniería eléctrica y electrónica, análisis
+      técnico y conocimiento aplicado a infraestructura energética. Este recorrido permite acompañar
+      cada necesidad desde la evaluación inicial y la selección de equipos hasta el diseño y el
+      desarrollo del proyecto.
+    </p>
   </div>
 
-  <TrustStrip />
+  <details class="why-disclosure" id="porque">
+    <summary>
+      <span>¿Por qué <BrandName />?</span>
+      <span class="why-disclosure__action">
+        Conoce nuestro enfoque
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="m7 10 5 5 5-5"></path>
+        </svg>
+      </span>
+    </summary>
+
+    <div class="why-disclosure__content">
+      <h2>Tecnología, ingeniería e integración en una misma solución.</h2>
+      <p>
+        No se trata solo de suministrar un equipo o ejecutar una instalación. Integramos tres
+        capacidades para que la tecnología responda correctamente a las condiciones de cada proyecto.
+      </p>
+      <TrustStrip />
+    </div>
+  </details>
+
   <EnergyFlow variant="secondary" />
   <EnergyFlow variant="tertiary" />
 </section>

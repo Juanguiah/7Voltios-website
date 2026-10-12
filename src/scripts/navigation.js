@@ -7,7 +7,7 @@
  */
 export function initNavigation() {
   const menuToggle = document.getElementById("menu-toggle");
-  const nav = document.querySelector(".nav");
+  const nav = document.getElementById("primary-navigation");
   const header = document.querySelector(".header");
 
   if (header) {
