@@ -1,9 +1,14 @@
 ---
 import BrandLogo from "./BrandLogo.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 import StoreIcon from "./StoreIcon.astro";
-import { WHATSAPP_QUOTE_URL } from "./contactLinks";
+import { getContactLinks } from "./contactLinks";
+import type { Locale } from "../config/i18n";
+import { localeConfig } from "../config/i18n";
+import { siteContent } from "../data/siteContent";
 
 interface Props {
+  locale?: Locale;
   homeHref?: string;
   mobilityHref?: string;
   engineeringHref?: string;
@@ -12,76 +17,83 @@ interface Props {
   whatsappHref?: string;
 }
 
-const {
-  homeHref = "/",
-  mobilityHref = "/#movilidad-electrica",
-  engineeringHref = "/#desarrollo-proyectos-electricos",
-  storeHref = "/#tienda",
-  aboutHref = "/#nosotros",
-  whatsappHref = WHATSAPP_QUOTE_URL,
-} = Astro.props;
+const locale = Astro.props.locale ?? "es";
+const copy = siteContent[locale].navigation;
+const defaultHomeHref = localeConfig[locale].homePath;
+const contactLinks = getContactLinks(locale);
+const homeHref = Astro.props.homeHref ?? defaultHomeHref;
+const mobilityHref = Astro.props.mobilityHref ?? `${defaultHomeHref}#movilidad-electrica`;
+const engineeringHref =
+  Astro.props.engineeringHref ?? `${defaultHomeHref}#desarrollo-proyectos-electricos`;
+const storeHref = Astro.props.storeHref ?? `${defaultHomeHref}#tienda`;
+const aboutHref = Astro.props.aboutHref ?? `${defaultHomeHref}#nosotros`;
+const whatsappHref = Astro.props.whatsappHref ?? contactLinks.quote;
 ---
 
 <header class="header">
   <div class="header__inner">
-    <BrandLogo href={homeHref} class="logo" />
+    <BrandLogo href={homeHref} class="logo" ariaLabel={`7 VOLTIOS, ${copy.home}`} />
 
-    <nav class="nav nav--desktop" aria-label="Navegación principal">
-      <a class="nav-home" href={homeHref} aria-label="Inicio">
+    <nav class="nav nav--desktop" aria-label={copy.primaryLabel}>
+      <a class="nav-home" href={homeHref} aria-label={copy.home}>
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
           <path d="m3 11 9-8 9 8"></path>
           <path d="M5 10v10h5v-6h4v6h5V10"></path>
         </svg>
-        <span class="nav-home__label">Inicio</span>
-        <span class="nav-home__tooltip" aria-hidden="true">Inicio</span>
+        <span class="nav-home__label">{copy.home}</span>
+        <span class="nav-home__tooltip" aria-hidden="true">{copy.home}</span>
       </a>
-      <a href={mobilityHref}>Movilidad eléctrica</a>
-      <a href={engineeringHref}>Desarrollo de proyectos eléctricos</a>
+      <a href={mobilityHref}>{copy.mobility}</a>
+      <a href={engineeringHref}>{copy.engineering}</a>
       <a class="nav-store" href={storeHref}>
         <StoreIcon />
-        <span>Tienda</span>
+        <span>{copy.store}</span>
       </a>
-      <a href={aboutHref}>Nosotros</a>
+      <a href={aboutHref}>{copy.about}</a>
     </nav>
 
     <nav
       class="nav nav--mobile"
       id="primary-navigation"
-      aria-label="Navegación móvil"
+      aria-label={copy.mobileLabel}
     >
       <a class="nav-store" href={storeHref}>
         <StoreIcon />
-        <span>Tienda</span>
+        <span>{copy.store}</span>
       </a>
-      <a href={homeHref}>Inicio</a>
-      <a href={mobilityHref}>Soluciones de movilidad eléctrica</a>
-      <a href={engineeringHref}>Desarrollo de proyectos eléctricos</a>
-      <a href={aboutHref}>Nosotros</a>
+      <a href={homeHref}>{copy.home}</a>
+      <a href={mobilityHref}>{copy.mobilityMobile}</a>
+      <a href={engineeringHref}>{copy.engineering}</a>
+      <a href={aboutHref}>{copy.about}</a>
+      <LanguageSwitcher {locale} variant="mobile" />
     </nav>
 
     <div class="header__actions">
+      <LanguageSwitcher {locale} variant="desktop" />
       <a
         class="header-btn"
         href={whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Solicitar una cotización por WhatsApp. Se abre en una nueva pestaña"
+        aria-label={copy.quoteAria}
       >
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
           <path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.6-4.7a8.5 8.5 0 1 1 15.9-4.3Z"></path>
           <path d="M8.4 7.7c.4 3.9 3.5 7 7.4 7.5"></path>
           <path d="m8.4 7.7 1.8-.7 1.2 2.2-1.1 1M15.8 15.2l.7-1.8-2.2-1.2-1 1.1"></path>
         </svg>
-        <span class="header-btn__label">Cotizar</span>
+        <span class="header-btn__label">{copy.quote}</span>
       </a>
 
       <button
         class="menu-toggle"
         id="menu-toggle"
         type="button"
-        aria-label="Abrir menú"
+        aria-label={copy.openMenu}
         aria-controls="primary-navigation"
         aria-expanded="false"
+        data-open-label={copy.openMenu}
+        data-close-label={copy.closeMenu}
       >
         <span></span>
         <span></span>

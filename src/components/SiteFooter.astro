@@ -1,8 +1,14 @@
 ---
 import BrandLogo from "./BrandLogo.astro";
 import BrandName from "./BrandName.astro";
+import InstagramIcon from "./InstagramIcon.astro";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "./contactLinks";
+import type { Locale } from "../config/i18n";
+import { localeConfig } from "../config/i18n";
+import { siteContent } from "../data/siteContent";
 
 interface Props {
+  locale?: Locale;
   year?: number;
   homeHref?: string;
   storeHref?: string;
@@ -12,29 +18,44 @@ interface Props {
   contactHref?: string;
 }
 
-const {
-  year = 2026,
-  homeHref = "/",
-  storeHref = "/#tienda",
-  mobilityHref = "/#movilidad-electrica",
-  engineeringHref = "/#desarrollo-proyectos-electricos",
-  aboutHref = "/#nosotros",
-  contactHref = "/#contacto",
-} = Astro.props;
+const locale = Astro.props.locale ?? "es";
+const copy = siteContent[locale].footer;
+const homeLabel = siteContent[locale].navigation.home;
+const defaultHomeHref = localeConfig[locale].homePath;
+const year = Astro.props.year ?? 2026;
+const homeHref = Astro.props.homeHref ?? defaultHomeHref;
+const storeHref = Astro.props.storeHref ?? `${defaultHomeHref}#tienda`;
+const mobilityHref = Astro.props.mobilityHref ?? `${defaultHomeHref}#movilidad-electrica`;
+const engineeringHref =
+  Astro.props.engineeringHref ?? `${defaultHomeHref}#desarrollo-proyectos-electricos`;
+const aboutHref = Astro.props.aboutHref ?? `${defaultHomeHref}#nosotros`;
+const contactHref = Astro.props.contactHref ?? `${defaultHomeHref}#contacto`;
 ---
 
 <footer class="footer">
   <div class="footer__inner">
-    <BrandLogo href={homeHref} class="footer__logo" loading="lazy" />
+    <BrandLogo
+      href={homeHref}
+      class="footer__logo"
+      loading="lazy"
+      ariaLabel={`7 VOLTIOS, ${homeLabel}`}
+    />
 
-    <nav class="footer__nav" aria-label="Navegación secundaria">
-      <a href={storeHref}>Tienda</a>
-      <a href={mobilityHref}>Movilidad eléctrica</a>
-      <a href={engineeringHref}>Proyectos eléctricos</a>
-      <a href={aboutHref}>Nosotros</a>
-      <a href={contactHref}>Contáctanos</a>
+    <nav class="footer__nav" aria-label={copy.navigationLabel}>
+      <a href={storeHref}>{copy.store}</a>
+      <a href={mobilityHref}>{copy.mobility}</a>
+      <a href={engineeringHref}>{copy.engineering}</a>
+      <a href={aboutHref}>{copy.about}</a>
+      <a href={contactHref}>{copy.contact}</a>
+      <a
+        class="footer__instagram"
+        href={INSTAGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={copy.instagramAria}
+      ><InstagramIcon /><span>{INSTAGRAM_HANDLE}</span></a>
     </nav>
 
-    <p><BrandName technologies /> © {year}. Todos los derechos reservados.</p>
+    <p><BrandName technologies /> © {year}. {copy.rights}</p>
   </div>
 </footer>

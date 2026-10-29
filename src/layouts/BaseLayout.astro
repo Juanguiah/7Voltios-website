@@ -15,6 +15,14 @@ export interface Props {
   noindex?: boolean;
   bodyClass?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  lang?: string;
+  ogLocale?: string;
+  alternateOgLocale?: string;
+  alternates?: Array<{
+    hreflang: string;
+    href: string | URL;
+  }>;
+  manifestHref?: string;
 }
 
 const {
@@ -29,11 +37,16 @@ const {
   noindex,
   bodyClass,
   structuredData,
+  lang = "es-CO",
+  ogLocale = "es_CO",
+  alternateOgLocale,
+  alternates,
+  manifestHref = "/site.webmanifest?v=20261029-bilingual",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es-CO">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,6 +63,9 @@ const {
       {type}
       {noindex}
       {structuredData}
+      {ogLocale}
+      {alternateOgLocale}
+      {alternates}
     />
 
     <link
@@ -75,7 +91,7 @@ const {
       sizes="180x180"
       href="/img/favicon-7v-180.png?v=20260727-master"
     />
-    <link rel="manifest" href="/site.webmanifest?v=20260920-orientacion" />
+    <link rel="manifest" href={manifestHref} />
 
     <slot name="head" />
   </head>

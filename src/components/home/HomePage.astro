@@ -1,0 +1,73 @@
+---
+import type { Locale } from "../../config/i18n";
+import { alternateHomeUrls, localeConfig } from "../../config/i18n";
+import { getHomeStructuredData } from "../../data/homeSeo";
+import { siteContent } from "../../data/siteContent";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/home.css";
+import ContactCTA from "../ContactCTA.astro";
+import SiteFooter from "../SiteFooter.astro";
+import SiteHeader from "../SiteHeader.astro";
+import EngineeringProjectsSection from "./EngineeringProjectsSection.astro";
+import FaqSection from "./FaqSection.astro";
+import HeroSection from "./HeroSection.astro";
+import MobilitySection from "./MobilitySection.astro";
+import PathwaysSection from "./PathwaysSection.astro";
+import ProductCategoriesSection from "./ProductCategoriesSection.astro";
+import WhySection from "./WhySection.astro";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const copy = siteContent[locale];
+const localeSettings = localeConfig[locale];
+const structuredData = getHomeStructuredData(locale);
+const alternates = [
+  { hreflang: "es-CO", href: alternateHomeUrls.es },
+  { hreflang: "en", href: alternateHomeUrls.en },
+  { hreflang: "x-default", href: alternateHomeUrls.default },
+];
+---
+
+<BaseLayout
+  title={copy.meta.title}
+  description={copy.meta.description}
+  canonical={localeSettings.homePath}
+  socialTitle={copy.meta.socialTitle}
+  socialDescription={copy.meta.socialDescription}
+  image="/img/og-image-v2.png"
+  imageAlt={copy.meta.imageAlt}
+  lang={localeSettings.htmlLang}
+  ogLocale={localeSettings.ogLocale}
+  alternateOgLocale={localeSettings.alternateOgLocale}
+  {alternates}
+  manifestHref={localeSettings.manifestPath}
+  {structuredData}
+>
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href="/img/hero-brochure-scene.webp"
+    type="image/webp"
+    fetchpriority="high"
+  />
+
+  <a class="skip-link" href="#contenido-principal">{copy.skipLink}</a>
+  <SiteHeader {locale} />
+
+  <main id="contenido-principal" tabindex="-1">
+    <HeroSection {locale} />
+    <PathwaysSection {locale} />
+    <ProductCategoriesSection {locale} />
+    <MobilitySection {locale} />
+    <EngineeringProjectsSection {locale} />
+    <WhySection {locale} />
+    <FaqSection {locale} />
+    <ContactCTA {locale} />
+  </main>
+
+  <SiteFooter {locale} />
+</BaseLayout>

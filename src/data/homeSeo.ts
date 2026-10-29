@@ -1,137 +1,125 @@
-import { homeFaqs } from "./faqs";
+import type { Locale } from "../config/i18n";
+import { localeConfig } from "../config/i18n";
+import { INSTAGRAM_URL } from "../components/contactLinks";
+import { homeFaqsByLocale } from "./faqs";
+import { siteContent } from "./siteContent";
 
-export const homeStructuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://7voltios.com/#organization",
-      name: "7 VOLTIOS",
-      alternateName: "7 VOLTIOS TECHNOLOGIES",
-      url: "https://7voltios.com/",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://7voltios.com/img/logo-maestro.png",
-        width: 560,
-        height: 379,
-      },
-      image: "https://7voltios.com/img/og-image-v2.png",
-      email: "proyectos@7voltios.com",
-      areaServed: {
-        "@type": "Country",
-        name: "Colombia",
-      },
-      knowsAbout: [
-        "Cargadores para vehículos eléctricos",
-        "Cargadores Wallbox y portátiles",
-        "Adaptadores y conectores para carga de vehículos eléctricos",
-        "Protecciones y sistemas de gestión de carga",
-        "Instalación de cargadores para vehículos eléctricos",
-        "Estudios de capacidad y viabilidad para carga de vehículos eléctricos",
-        "Infraestructura eléctrica para sistemas de carga",
-        "Diseños eléctricos",
-        "Gestión para certificación RETIE y legalización de proyectos",
-        "Estudios de calidad de energía",
-        "Desarrollo de proyectos eléctricos",
-      ],
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Tienda de movilidad eléctrica",
-        itemListElement: [
-          { "@type": "OfferCatalog", name: "Cargadores portátiles" },
-          { "@type": "OfferCatalog", name: "Wallbox" },
-          { "@type": "OfferCatalog", name: "Adaptadores y conectores de carga" },
-          { "@type": "OfferCatalog", name: "Accesorios de carga" },
-          { "@type": "OfferCatalog", name: "Protecciones especializadas" },
-          { "@type": "OfferCatalog", name: "Sistemas de gestión y medición de carga" },
-          { "@type": "OfferCatalog", name: "Tecnología para infraestructura de carga" },
+const SITE_URL = "https://7voltios.com";
+
+export function getHomeStructuredData(locale: Locale = "es") {
+  const copy = siteContent[locale];
+  const faqs = homeFaqsByLocale[locale];
+  const localePath = localeConfig[locale].homePath;
+  const pageUrl = new URL(localePath, SITE_URL).toString();
+  const isEnglish = locale === "en";
+  const language = localeConfig[locale].htmlLang;
+  const mobilityId = `${pageUrl}#${isEnglish ? "electric-mobility-service" : "servicio-movilidad-electrica"}`;
+  const engineeringId = `${pageUrl}#${isEnglish ? "electrical-project-service" : "servicio-proyectos-electricos"}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "7 VOLTIOS",
+        alternateName: "7 VOLTIOS TECHNOLOGIES",
+        url: `${SITE_URL}/`,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/img/logo-maestro.png`,
+          width: 560,
+          height: 379,
+        },
+        image: `${SITE_URL}/img/og-image-v2.png`,
+        email: "proyectos@7voltios.com",
+        sameAs: [INSTAGRAM_URL],
+        areaServed: {
+          "@type": "Country",
+          name: "Colombia",
+        },
+        knowsAbout: [
+          ...copy.products.categories.map((category) => category.title),
+          ...copy.mobility.services.map((service) => service.title),
+          ...copy.engineering.services.map((service) => service.title),
         ],
-      },
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://7voltios.com/#website",
-      url: "https://7voltios.com/",
-      name: "7 VOLTIOS",
-      inLanguage: "es-CO",
-      publisher: {
-        "@id": "https://7voltios.com/#organization",
-      },
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://7voltios.com/#webpage",
-      url: "https://7voltios.com/",
-      name: "7 VOLTIOS | Movilidad eléctrica y proyectos eléctricos",
-      description:
-        "Cargadores, instalación e infraestructura para movilidad eléctrica y desarrollo de proyectos eléctricos con respaldo de ingeniería en Colombia.",
-      inLanguage: "es-CO",
-      isPartOf: {
-        "@id": "https://7voltios.com/#website",
-      },
-      about: [
-        {
-          "@id": "https://7voltios.com/#servicio-movilidad-electrica",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: copy.products.eyebrow,
+          itemListElement: copy.products.categories.map((category) => ({
+            "@type": "OfferCatalog",
+            name: category.title,
+          })),
         },
-        {
-          "@id": "https://7voltios.com/#servicio-proyectos-electricos",
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: "7 VOLTIOS",
+        inLanguage: ["es-CO", "en"],
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
         },
-      ],
-    },
-    {
-      "@type": "Service",
-      "@id": "https://7voltios.com/#servicio-movilidad-electrica",
-      name: "Movilidad eléctrica",
-      serviceType: [
-        "Instalación de cargadores",
-        "Estudios de capacidad y viabilidad para carga de vehículos eléctricos",
-        "Infraestructura eléctrica para sistemas de carga",
-      ],
-      description:
-        "Instalación, estudios de capacidad e infraestructura de carga para vehículos eléctricos en hogares, copropiedades, comercios y empresas.",
-      url: "https://7voltios.com/#movilidad-electrica",
-      provider: {
-        "@id": "https://7voltios.com/#organization",
       },
-      areaServed: {
-        "@type": "Country",
-        name: "Colombia",
-      },
-    },
-    {
-      "@type": "Service",
-      "@id": "https://7voltios.com/#servicio-proyectos-electricos",
-      name: "Diseño y desarrollo de proyectos eléctricos",
-      serviceType: [
-        "Diseños eléctricos",
-        "Gestión para certificación RETIE y legalización de proyectos",
-        "Estudios de calidad de energía",
-        "Desarrollo de proyectos eléctricos",
-      ],
-      description:
-        "Diseño, gestión RETIE, diagnóstico de calidad de energía y desarrollo de proyectos eléctricos.",
-      url: "https://7voltios.com/#desarrollo-proyectos-electricos",
-      provider: {
-        "@id": "https://7voltios.com/#organization",
-      },
-      areaServed: {
-        "@type": "Country",
-        name: "Colombia",
-      },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://7voltios.com/#preguntas-frecuentes",
-      url: "https://7voltios.com/#preguntas-frecuentes",
-      inLanguage: "es-CO",
-      mainEntity: homeFaqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: copy.meta.title,
+        description: copy.meta.description,
+        inLanguage: language,
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
         },
-      })),
-    },
-  ],
-};
+        about: [{ "@id": mobilityId }, { "@id": engineeringId }],
+      },
+      {
+        "@type": "Service",
+        "@id": mobilityId,
+        name: copy.mobility.eyebrow,
+        serviceType: copy.mobility.services.map((service) => service.title),
+        description: copy.mobility.intro,
+        url: `${pageUrl}#movilidad-electrica`,
+        provider: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "Colombia",
+        },
+      },
+      {
+        "@type": "Service",
+        "@id": engineeringId,
+        name: copy.engineering.eyebrow,
+        serviceType: copy.engineering.services.map((service) => service.title),
+        description: copy.engineering.intro,
+        url: `${pageUrl}#desarrollo-proyectos-electricos`,
+        provider: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "Colombia",
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#preguntas-frecuentes`,
+        url: `${pageUrl}#preguntas-frecuentes`,
+        inLanguage: language,
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+}
+
+export const homeStructuredData = getHomeStructuredData("es");

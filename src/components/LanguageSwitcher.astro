@@ -1,0 +1,33 @@
+---
+import type { Locale } from "../config/i18n";
+import { localeConfig } from "../config/i18n";
+import { siteContent } from "../data/siteContent";
+
+interface Props {
+  locale?: Locale;
+  variant?: "desktop" | "mobile";
+}
+
+const { locale = "es", variant = "desktop" } = Astro.props;
+const copy = siteContent[locale].navigation;
+---
+
+<div
+  class:list={["language-switcher", `language-switcher--${variant}`]}
+  role="group"
+  aria-label={copy.language}
+>
+  <a
+    href={localeConfig.es.homePath}
+    lang="es"
+    hreflang="es-CO"
+    aria-current={locale === "es" ? "page" : undefined}
+  >ES</a>
+  <span class="language-switcher__divider" aria-hidden="true"></span>
+  <a
+    href={localeConfig.en.homePath}
+    lang="en"
+    hreflang="en"
+    aria-current={locale === "en" ? "page" : undefined}
+  >EN</a>
+</div>

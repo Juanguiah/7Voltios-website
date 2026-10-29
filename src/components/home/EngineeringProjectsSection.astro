@@ -1,6 +1,17 @@
 ---
+import type { Locale } from "../../config/i18n";
+import { siteContent } from "../../data/siteContent";
 import Button from "../Button.astro";
-import { WHATSAPP_ENGINEERING_URL, WHATSAPP_PROJECT_URL } from "../contactLinks";
+import { getContactLinks } from "../contactLinks";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const copy = siteContent[locale].engineering;
+const contactLinks = getContactLinks(locale);
+const localeTag = locale === "es" ? "es-CO" : "en";
 ---
 
 <section
@@ -11,15 +22,10 @@ import { WHATSAPP_ENGINEERING_URL, WHATSAPP_PROJECT_URL } from "../contactLinks"
   <div class="engineering-projects-section__inner">
     <header class="engineering-projects-section__header">
       <span class="engineering-projects-section__eyebrow">
-        DESARROLLO DE PROYECTOS ELÉCTRICOS
+        {copy.eyebrow.toLocaleUpperCase(localeTag)}
       </span>
-      <h2 id="engineering-projects-section-title">
-        Diseñamos y desarrollamos proyectos eléctricos con respaldo técnico.
-      </h2>
-      <p class="engineering-projects-section__intro">
-        Convertimos las necesidades de una instalación en decisiones de ingeniería, documentación
-        técnica y soluciones preparadas para su desarrollo y legalización.
-      </p>
+      <h2 id="engineering-projects-section-title">{copy.title}</h2>
+      <p class="engineering-projects-section__intro">{copy.intro}</p>
     </header>
 
     <ul class="engineering-projects-section__services" role="list">
@@ -31,11 +37,8 @@ import { WHATSAPP_ENGINEERING_URL, WHATSAPP_PROJECT_URL } from "../contactLinks"
               <path d="m17 35 14-14 4 4-14 14-6 2 2-6Z"></path>
             </svg>
           </div>
-          <h3>Diseños eléctricos</h3>
-          <p>
-            Desarrollamos la ingeniería y documentación técnica necesarias para ejecutar proyectos
-            eléctricos con claridad y criterio profesional.
-          </p>
+          <h3>{copy.services[0].title}</h3>
+          <p>{copy.services[0].description}</p>
         </article>
       </li>
 
@@ -47,11 +50,8 @@ import { WHATSAPP_ENGINEERING_URL, WHATSAPP_PROJECT_URL } from "../contactLinks"
               <path d="m19 34 4 4 8-9"></path>
             </svg>
           </div>
-          <h3>Gestión para certificación RETIE y legalización de proyectos</h3>
-          <p>
-            Acompañamos técnicamente el proceso de certificación RETIE y la legalización de
-            proyectos eléctricos.
-          </p>
+          <h3>{copy.services[1].title}</h3>
+          <p>{copy.services[1].description}</p>
         </article>
       </li>
 
@@ -63,20 +63,13 @@ import { WHATSAPP_ENGINEERING_URL, WHATSAPP_PROJECT_URL } from "../contactLinks"
               <path d="M9 28h6l4-12 7 20 5-15 4 7h8"></path>
             </svg>
           </div>
-          <h3>Estudios de calidad de energía</h3>
-          <p>
-            Medimos, analizamos y diagnosticamos el comportamiento eléctrico de la instalación
-            para identificar perturbaciones y recomendar acciones orientadas a reducir riesgos,
-            proteger los equipos y favorecer la continuidad operativa.
-          </p>
+          <h3>{copy.services[2].title}</h3>
+          <p>{copy.services[2].description}</p>
           <ol
             class="engineering-service-card__process"
-            aria-label="Proceso de diagnóstico de calidad de energía"
+            aria-label={copy.services[2].processLabel}
           >
-            <li>Medimos</li>
-            <li>Analizamos</li>
-            <li>Diagnosticamos</li>
-            <li>Recomendamos</li>
+            {copy.services[2].process.map((step) => <li>{step}</li>)}
           </ol>
         </article>
       </li>
@@ -92,18 +85,15 @@ import { WHATSAPP_ENGINEERING_URL, WHATSAPP_PROJECT_URL } from "../contactLinks"
               <path d="m25 34-4 6h3l-1 4 5-7h-3l1-3"></path>
             </svg>
           </div>
-          <h3>Desarrollo de proyectos eléctricos</h3>
-          <p>
-            Integramos diseño, coordinación técnica y desarrollo para convertir una necesidad
-            eléctrica en una solución consistente.
-          </p>
+          <h3>{copy.services[3].title}</h3>
+          <p>{copy.services[3].description}</p>
           <a
             class="engineering-service-card__link"
-            href={WHATSAPP_PROJECT_URL}
+            href={contactLinks.project}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Desarrollar un proyecto eléctrico por WhatsApp. Se abre en una nueva pestaña"
-          >Desarrollar un proyecto eléctrico <span aria-hidden="true">→</span></a>
+            aria-label={copy.services[3].aria}
+          >{copy.services[3].cta} <span aria-hidden="true">→</span></a>
         </article>
       </li>
     </ul>
@@ -111,16 +101,16 @@ import { WHATSAPP_ENGINEERING_URL, WHATSAPP_PROJECT_URL } from "../contactLinks"
     <div class="engineering-projects-section__actions">
       <Button
         class="engineering-projects-section__action"
-        href={WHATSAPP_ENGINEERING_URL}
+        href={contactLinks.engineering}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Solicitar un servicio de ingeniería por WhatsApp. Se abre en una nueva pestaña"
-      >Solicitar un servicio de ingeniería</Button>
+        aria-label={copy.engineeringAria}
+      >{copy.engineeringCta}</Button>
       <Button
         class="engineering-projects-section__action engineering-projects-section__action--secondary"
         href="#tienda"
         variant="secondary"
-      >Conocer tecnología para movilidad eléctrica</Button>
+      >{copy.technologyCta}</Button>
     </div>
   </div>
 </section>

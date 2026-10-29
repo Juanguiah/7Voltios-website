@@ -28,6 +28,55 @@
   gap: 10px;
 }
 
+.language-switcher {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid rgba(63, 214, 208, 0.22);
+  border-radius: 999px;
+  background: rgba(63, 214, 208, 0.045);
+}
+
+.language-switcher a {
+  display: grid;
+  min-width: 32px;
+  min-height: 32px;
+  place-items: center;
+  border-radius: 999px;
+  color: rgba(217, 230, 242, 0.78);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.language-switcher a:hover,
+.language-switcher a:focus-visible {
+  color: var(--white);
+}
+
+.language-switcher a:focus-visible {
+  outline: 2px solid #76fff7;
+  outline-offset: 2px;
+}
+
+.language-switcher a[aria-current="page"] {
+  background: var(--teal);
+  color: var(--blue-dark);
+}
+
+.language-switcher__divider {
+  width: 1px;
+  height: 17px;
+  background: rgba(217, 230, 242, 0.2);
+}
+
 .logo img {
   width: 148px;
 }
@@ -192,6 +241,10 @@
     display: none;
   }
 
+  .language-switcher--desktop {
+    display: none;
+  }
+
   .menu-toggle {
     display: flex;
     margin-left: 0;
@@ -248,6 +301,28 @@
     border-color: rgba(118, 255, 247, 0.52);
     background: rgba(63, 214, 208, 0.14);
     color: var(--teal) !important;
+  }
+
+  .nav.active .language-switcher--mobile {
+    display: flex;
+    width: 100%;
+    margin-top: 7px;
+    justify-content: center;
+    padding: 12px 0 0;
+    border: 0;
+    border-top: 1px solid rgba(63, 214, 208, 0.2);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .nav.active .language-switcher--mobile a {
+    min-width: 42px;
+    min-height: 38px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 999px;
+    font-size: 12px;
+    white-space: nowrap;
   }
 }
 
@@ -337,6 +412,21 @@
   color: var(--teal);
 }
 
+.footer__instagram {
+  gap: 7px;
+}
+
+.footer__instagram svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: var(--teal);
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .footer__nav a:focus-visible {
   border-radius: 4px;
   outline: 2px solid #76fff7;
@@ -366,6 +456,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .nav-home__tooltip {
+    transition: none;
+  }
+
+  .language-switcher a {
     transition: none;
   }
 

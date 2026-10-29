@@ -18,9 +18,23 @@ export default defineConfig({
   site: "https://7voltios.com",
   output: "static",
   trailingSlash: "always",
+  i18n: {
+    defaultLocale: "es",
+    locales: ["es", "en"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [
     sitemap({
       filter: (page) => !page.endsWith("/404/"),
+      i18n: {
+        defaultLocale: "es",
+        locales: {
+          es: "es-CO",
+          en: "en",
+        },
+      },
     }),
     preserveLegacySitemapUrl,
   ],

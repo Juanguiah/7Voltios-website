@@ -1,21 +1,29 @@
 ---
-import { WHATSAPP_GENERAL_URL } from "../contactLinks";
-import { homeFaqs } from "../../data/faqs";
+import { getContactLinks } from "../contactLinks";
+import type { Locale } from "../../config/i18n";
+import { homeFaqsByLocale } from "../../data/faqs";
+import { siteContent } from "../../data/siteContent";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const copy = siteContent[locale].faq;
+const faqs = homeFaqsByLocale[locale];
+const contactLinks = getContactLinks(locale);
 ---
 
 <section class="faq-section" id="preguntas-frecuentes" aria-labelledby="faq-title">
   <div class="faq-section__inner">
     <header class="faq-section__header">
-      <span>Preguntas frecuentes</span>
-      <h2 id="faq-title">Respuestas claras antes de iniciar tu proyecto.</h2>
-      <p>
-        Aquí resolvemos las dudas más comunes sobre nuestros productos y servicios. Si tu caso es
-        diferente, conversemos para entenderlo.
-      </p>
+      <span>{copy.eyebrow}</span>
+      <h2 id="faq-title">{copy.title}</h2>
+      <p>{copy.intro}</p>
     </header>
 
     <div class="faq-list">
-      {homeFaqs.map((faq, index) => (
+      {faqs.map((faq, index) => (
         <details class="faq-item" open={index === 0}>
           <summary>
             <span>{faq.question}</span>
@@ -31,13 +39,13 @@ import { homeFaqs } from "../../data/faqs";
     </div>
 
     <div class="faq-section__cta">
-      <p><strong>¿Tu pregunta no está aquí?</strong> Cuéntanos brevemente qué necesitas.</p>
+      <p><strong>{copy.missingQuestion}</strong> {copy.missingAnswer}</p>
       <a
-        href={WHATSAPP_GENERAL_URL}
+        href={contactLinks.general}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Consultar otro caso por WhatsApp. Se abre en una nueva pestaña"
-      >Consultar por WhatsApp <span aria-hidden="true">→</span></a>
+        aria-label={copy.ctaAria}
+      >{copy.cta} <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

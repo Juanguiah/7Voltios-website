@@ -11,6 +11,12 @@ export interface Props {
   noindex?: boolean;
   robots?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  ogLocale?: string;
+  alternateOgLocale?: string;
+  alternates?: Array<{
+    hreflang: string;
+    href: string | URL;
+  }>;
 }
 
 const {
@@ -25,6 +31,9 @@ const {
   noindex = false,
   robots,
   structuredData,
+  ogLocale = "es_CO",
+  alternateOgLocale,
+  alternates = [],
 } = Astro.props;
 
 const siteOrigin = Astro.site ?? new URL(Astro.url.origin);
@@ -32,6 +41,10 @@ const canonicalURL = canonical
   ? new URL(canonical, siteOrigin)
   : new URL(Astro.url.pathname, siteOrigin);
 const socialImageURL = new URL(image, siteOrigin);
+const alternateLinks = alternates.map((alternate) => ({
+  hreflang: alternate.hreflang,
+  href: new URL(alternate.href, siteOrigin),
+}));
 const isVercelPreview = process.env.VERCEL_ENV === "preview";
 const shouldNoIndex = noindex || isVercelPreview;
 const robotsContent = shouldNoIndex
@@ -45,6 +58,9 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : undefined;
 <meta name="description" content={description} />
 <meta name="robots" content={robotsContent} />
 <link rel="canonical" href={canonicalURL} />
+{alternateLinks.map((alternate) => (
+  <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+))}
 
 <meta property="og:title" content={socialTitle} />
 <meta property="og:site_name" content="7 VOLTIOS" />
@@ -55,7 +71,8 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : undefined;
 <meta property="og:image:alt" content={imageAlt} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:type" content={type} />
-<meta property="og:locale" content="es_CO" />
+<meta property="og:locale" content={ogLocale} />
+{alternateOgLocale && <meta property="og:locale:alternate" content={alternateOgLocale} />}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={socialTitle} />

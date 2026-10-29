@@ -24,9 +24,11 @@ export function initNavigation() {
   }
 
   const setMobileMenu = (open) => {
+    const openLabel = menuToggle.dataset.openLabel || "Abrir menú";
+    const closeLabel = menuToggle.dataset.closeLabel || "Cerrar menú";
     nav.classList.toggle("active", open);
     menuToggle.setAttribute("aria-expanded", String(open));
-    menuToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    menuToggle.setAttribute("aria-label", open ? closeLabel : openLabel);
   };
 
   menuToggle.addEventListener("click", () => {

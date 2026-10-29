@@ -1,7 +1,17 @@
 ---
 import BrandName from "../BrandName.astro";
 import Button from "../Button.astro";
-import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLinks";
+import { getContactLinks } from "../contactLinks";
+import type { Locale } from "../../config/i18n";
+import { siteContent } from "../../data/siteContent";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const copy = siteContent[locale].products;
+const contactLinks = getContactLinks(locale);
 ---
 
 <section
@@ -11,14 +21,9 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
 >
   <div class="product-categories-section__inner">
     <header class="product-categories-section__header">
-      <span class="product-categories-section__eyebrow">TIENDA DE MOVILIDAD ELÉCTRICA</span>
-      <h2 id="product-categories-section-title">
-        Tecnología especializada para cada forma de cargar.
-      </h2>
-      <p class="product-categories-section__intro">
-        Equipos y accesorios para movilidad eléctrica, respaldados por criterio técnico para
-        ayudarte a elegir e integrar la solución adecuada.
-      </p>
+      <span class="product-categories-section__eyebrow">{copy.eyebrow}</span>
+      <h2 id="product-categories-section-title">{copy.title}</h2>
+      <p class="product-categories-section__intro">{copy.intro}</p>
     </header>
 
     <ul class="product-categories-section__categories" role="list">
@@ -31,8 +36,8 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
               <path d="M35 20h2a4 4 0 0 1 4 4v9a4 4 0 0 1-4 4h-2"></path>
             </svg>
           </div>
-          <h3>Cargadores portátiles</h3>
-          <p>Flexibilidad para cargar en diferentes ubicaciones según las condiciones del sitio.</p>
+          <h3>{copy.categories[0].title}</h3>
+          <p>{copy.categories[0].description}</p>
         </article>
       </li>
 
@@ -45,8 +50,8 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
               <path d="M34 16h3a4 4 0 0 1 4 4v11a4 4 0 0 1-4 4h-3"></path>
             </svg>
           </div>
-          <h3>Wallbox</h3>
-          <p>Soluciones de carga fija para hogares, copropiedades, comercios y empresas.</p>
+          <h3>{copy.categories[1].title}</h3>
+          <p>{copy.categories[1].description}</p>
         </article>
       </li>
 
@@ -59,11 +64,8 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
               <path d="M5 24h3M40 24h3"></path>
             </svg>
           </div>
-          <h3>Adaptadores y conectores de carga</h3>
-          <p>
-            Soluciones de conexión para diferentes vehículos, cargadores y estándares,
-            seleccionadas según su compatibilidad y especificaciones eléctricas.
-          </p>
+          <h3>{copy.categories[2].title}</h3>
+          <p>{copy.categories[2].description}</p>
         </article>
       </li>
 
@@ -76,8 +78,8 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
               <path d="M18 34h12"></path>
             </svg>
           </div>
-          <h3>Accesorios de carga</h3>
-          <p>Elementos complementarios para organizar y facilitar el uso de los equipos de carga.</p>
+          <h3>{copy.categories[3].title}</h3>
+          <p>{copy.categories[3].description}</p>
         </article>
       </li>
 
@@ -89,8 +91,8 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
               <path d="m25 13-7 12h7l-2 10 8-14h-7l1-8Z"></path>
             </svg>
           </div>
-          <h3>Protecciones especializadas</h3>
-          <p>Protección eléctrica seleccionada para sistemas e infraestructura de carga.</p>
+          <h3>{copy.categories[4].title}</h3>
+          <p>{copy.categories[4].description}</p>
         </article>
       </li>
 
@@ -102,8 +104,8 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
               <path d="M8 10h8v7H8zM24 9h8v7h-8z"></path>
             </svg>
           </div>
-          <h3>Sistemas de gestión y medición de carga</h3>
-          <p>Control y seguimiento para administrar la demanda y el uso de los puntos de carga.</p>
+          <h3>{copy.categories[5].title}</h3>
+          <p>{copy.categories[5].description}</p>
         </article>
       </li>
 
@@ -116,8 +118,8 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
               <path d="M11.5 20V9h25v11M24 9v29M17 29h14"></path>
             </svg>
           </div>
-          <h3>Tecnología para infraestructura de carga</h3>
-          <p>Equipos especializados para integrar uno o múltiples puntos de carga.</p>
+          <h3>{copy.categories[6].title}</h3>
+          <p>{copy.categories[6].description}</p>
         </article>
       </li>
     </ul>
@@ -125,23 +127,23 @@ import { WHATSAPP_INSTALLATION_URL, WHATSAPP_PRODUCTS_URL } from "../contactLink
     <div
       class="product-categories-section__actions"
       role="group"
-      aria-label="Acciones de cargadores y accesorios"
+      aria-label={copy.actionsLabel}
     >
       <Button
         class="product-categories-section__action product-categories-section__action--primary"
-        href={WHATSAPP_PRODUCTS_URL}
+        href={contactLinks.products}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Consultar cargadores por WhatsApp. Se abre en una nueva pestaña"
-      >Consultar equipos</Button>
+        aria-label={copy.productsAria}
+      >{copy.productsCta}</Button>
       <Button
         class="product-categories-section__action product-categories-section__action--secondary"
-        href={WHATSAPP_INSTALLATION_URL}
+        href={contactLinks.installation}
         variant="secondary"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Solicitar una cotización de instalación por WhatsApp. Se abre en una nueva pestaña"
-      >¿Necesitas instalación? Solicita una cotización con <BrandName surface="light" /></Button>
+        aria-label={copy.installationAria}
+      >{copy.installationPrefix} <BrandName surface="light" /></Button>
     </div>
   </div>
 </section>

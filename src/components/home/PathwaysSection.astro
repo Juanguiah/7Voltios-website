@@ -1,16 +1,23 @@
 ---
 import StoreIcon from "../StoreIcon.astro";
+import type { Locale } from "../../config/i18n";
+import { siteContent } from "../../data/siteContent";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const copy = siteContent[locale].pathways;
+const [storeCard, mobilityCard, engineeringCard] = copy.cards;
 ---
 
 <section class="pathways" id="servicios" aria-labelledby="pathways-title">
   <div class="pathways__inner">
     <header class="pathways__heading">
-      <span>Tres formas de empezar</span>
-      <h2 id="pathways-title">¿Qué podemos ayudarte a resolver?</h2>
-      <p>
-        Elige la ruta que mejor describe tu necesidad: adquirir tecnología, desarrollar una
-        solución de carga o ejecutar un proyecto eléctrico.
-      </p>
+      <span>{copy.eyebrow}</span>
+      <h2 id="pathways-title">{copy.title}</h2>
+      <p>{copy.intro}</p>
     </header>
 
     <div class="pathways__grid">
@@ -18,11 +25,11 @@ import StoreIcon from "../StoreIcon.astro";
         <div class="pathway-card__icon" aria-hidden="true">
           <StoreIcon />
         </div>
-        <span class="pathway-card__category">Tienda</span>
-        <h3>¿Buscas un cargador o tecnología para movilidad eléctrica?</h3>
-        <p>Cargadores, wallbox, adaptadores, conectores y tecnología especializada.</p>
+        <span class="pathway-card__category">{storeCard.category}</span>
+        <h3>{storeCard.title}</h3>
+        <p>{storeCard.description}</p>
         <a class="pathway-card__link" href="#tienda">
-          Ver productos <span aria-hidden="true">→</span>
+          {storeCard.cta} <span aria-hidden="true">→</span>
         </a>
       </article>
 
@@ -34,11 +41,11 @@ import StoreIcon from "../StoreIcon.astro";
             <path d="M34 16h3a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4h-3"></path>
           </svg>
         </div>
-        <span class="pathway-card__category">Movilidad eléctrica</span>
-        <h3>¿Necesitas instalar un cargador o desarrollar infraestructura de carga?</h3>
-        <p>Instalación, estudios de capacidad y soluciones de infraestructura.</p>
+        <span class="pathway-card__category">{mobilityCard.category}</span>
+        <h3>{mobilityCard.title}</h3>
+        <p>{mobilityCard.description}</p>
         <a class="pathway-card__link" href="#movilidad-electrica">
-          Conocer soluciones <span aria-hidden="true">→</span>
+          {mobilityCard.cta} <span aria-hidden="true">→</span>
         </a>
       </article>
 
@@ -52,11 +59,11 @@ import StoreIcon from "../StoreIcon.astro";
             <path d="m25 34-4 6h3l-1 4 5-7h-3l1-3"></path>
           </svg>
         </div>
-        <span class="pathway-card__category">Desarrollo de proyectos eléctricos</span>
-        <h3>¿Necesitas diseñar, diagnosticar, legalizar o ejecutar un proyecto eléctrico?</h3>
-        <p>Diseños, RETIE, calidad de energía y desarrollo de proyectos.</p>
+        <span class="pathway-card__category">{engineeringCard.category}</span>
+        <h3>{engineeringCard.title}</h3>
+        <p>{engineeringCard.description}</p>
         <a class="pathway-card__link" href="#desarrollo-proyectos-electricos">
-          Conocer servicios <span aria-hidden="true">→</span>
+          {engineeringCard.cta} <span aria-hidden="true">→</span>
         </a>
       </article>
     </div>

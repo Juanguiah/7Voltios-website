@@ -1,37 +1,44 @@
 ---
 import Button from "../Button.astro";
 import EnergyFlow from "../EnergyFlow.astro";
-import { WHATSAPP_INSTALLATION_URL } from "../contactLinks";
+import { getContactLinks } from "../contactLinks";
+import type { Locale } from "../../config/i18n";
+import { siteContent } from "../../data/siteContent";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const copy = siteContent[locale].hero;
+const contactLinks = getContactLinks(locale);
 ---
 
 <section class="home-hero" aria-labelledby="home-hero-title">
   <div class="home-hero__inner">
     <div class="home-hero__content">
       <span class="home-hero__eyebrow home-hero__eyebrow--desktop">
-        Movilidad eléctrica · Desarrollo de proyectos eléctricos
+        {copy.eyebrowDesktop}
       </span>
       <span class="home-hero__eyebrow home-hero__eyebrow--mobile">
-        Movilidad eléctrica · Proyectos eléctricos
+        {copy.eyebrowMobile}
       </span>
 
       <h1 id="home-hero-title">
-        Cargadores, infraestructura e ingeniería para <strong>movilidad eléctrica.</strong>
+        {copy.title} <strong>{copy.titleHighlight}</strong>
       </h1>
 
-      <p class="home-hero__lead">
-        Equipos, instalación y soluciones de ingeniería para hogares, copropiedades, comercios y
-        empresas.
-      </p>
+      <p class="home-hero__lead">{copy.lead}</p>
 
-      <div class="home-hero__actions" role="group" aria-label="Acciones principales">
-        <Button href="#tienda">Ver Tienda</Button>
+      <div class="home-hero__actions" role="group" aria-label={copy.actionsLabel}>
+        <Button href="#tienda">{copy.storeCta}</Button>
         <Button
-          href={WHATSAPP_INSTALLATION_URL}
+          href={contactLinks.installation}
           variant="secondary"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Cotizar instalación por WhatsApp. Se abre en una nueva pestaña"
-        >Cotizar instalación</Button>
+          aria-label={copy.installationAria}
+        >{copy.installationCta}</Button>
       </div>
     </div>
 

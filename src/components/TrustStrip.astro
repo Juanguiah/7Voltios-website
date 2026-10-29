@@ -1,3 +1,15 @@
+---
+import type { Locale } from "../config/i18n";
+import { siteContent } from "../data/siteContent";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const pillars = siteContent[locale].about.pillars;
+---
+
 <ul class="why-grid why-grid--pillars">
   <li class="why-item">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -6,8 +18,8 @@
       <path d="M10 10h4v4h-4z"></path>
     </svg>
     <div>
-      <h3>Tecnología</h3>
-      <p>Seleccionamos equipos y soluciones especializadas para cada necesidad.</p>
+      <h3>{pillars[0].title}</h3>
+      <p>{pillars[0].description}</p>
     </div>
   </li>
 
@@ -17,8 +29,8 @@
       <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 9 19.37a1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.63 15 1.7 1.7 0 0 0 3.09 14H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.63 9a1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.63h.01A1.7 1.7 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1.03 1.54 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.37 9v.01A1.7 1.7 0 0 0 20.91 10H21a2 2 0 1 1 0 4h-.09A1.7 1.7 0 0 0 19.4 15Z"></path>
     </svg>
     <div>
-      <h3>Ingeniería</h3>
-      <p>Analizamos, diseñamos y validamos cada solución con criterio técnico.</p>
+      <h3>{pillars[1].title}</h3>
+      <p>{pillars[1].description}</p>
     </div>
   </li>
 
@@ -30,8 +42,8 @@
       <path d="m8.7 10.6 6.6-3.2M8.7 13.4l6.6 3.2"></path>
     </svg>
     <div>
-      <h3>Integración</h3>
-      <p>Articulamos tecnología, infraestructura y puesta en servicio.</p>
+      <h3>{pillars[2].title}</h3>
+      <p>{pillars[2].description}</p>
     </div>
   </li>
 </ul>

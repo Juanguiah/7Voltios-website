@@ -1,9 +1,16 @@
 ---
-import {
-  WHATSAPP_CAPACITY_STUDY_URL,
-  WHATSAPP_INFRASTRUCTURE_URL,
-  WHATSAPP_INSTALLATION_URL,
-} from "../contactLinks";
+import type { Locale } from "../../config/i18n";
+import { siteContent } from "../../data/siteContent";
+import { getContactLinks } from "../contactLinks";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const copy = siteContent[locale].mobility;
+const contactLinks = getContactLinks(locale);
+const localeTag = locale === "es" ? "es-CO" : "en";
 ---
 
 <section
@@ -13,23 +20,15 @@ import {
 >
   <div class="mobility-section__inner">
     <header class="mobility-section__header">
-      <span class="mobility-section__eyebrow">MOVILIDAD ELÉCTRICA</span>
-      <h2 id="mobility-section-title">
-        Soluciones de carga que empiezan por entender tu infraestructura.
-      </h2>
-      <p class="mobility-section__intro">
-        Desarrollamos soluciones de carga para hogares, copropiedades, comercios y empresas.
-        Integramos equipos, instalación e ingeniería para cargar de forma segura y confiable.
-      </p>
+      <span class="mobility-section__eyebrow">{copy.eyebrow.toLocaleUpperCase(localeTag)}</span>
+      <h2 id="mobility-section-title">{copy.title}</h2>
+      <p class="mobility-section__intro">{copy.intro}</p>
     </header>
 
     <aside class="mobility-section__sectors" aria-labelledby="mobility-sectors-title">
-      <h3 id="mobility-sectors-title">Sectores que atendemos</h3>
+      <h3 id="mobility-sectors-title">{copy.sectorsTitle}</h3>
       <ul role="list">
-        <li>Hogares</li>
-        <li>Copropiedades</li>
-        <li>Comercios</li>
-        <li>Empresas</li>
+        {copy.sectors.map((sector) => <li>{sector}</li>)}
       </ul>
     </aside>
 
@@ -43,18 +42,15 @@ import {
               <path d="M34 16h3a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-3"></path>
             </svg>
           </div>
-          <h3>Instalación de cargadores</h3>
-          <p>
-            Instalamos cargadores para hogares, copropiedades, comercios y empresas, integrando las
-            protecciones y los elementos asociados.
-          </p>
+          <h3>{copy.services[0].title}</h3>
+          <p>{copy.services[0].description}</p>
           <a
             class="mobility-service-card__link"
-            href={WHATSAPP_INSTALLATION_URL}
+            href={contactLinks.installation}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Cotizar instalación por WhatsApp. Se abre en una nueva pestaña"
-          >Cotizar instalación <span aria-hidden="true">→</span></a>
+            aria-label={copy.services[0].aria}
+          >{copy.services[0].cta} <span aria-hidden="true">→</span></a>
         </article>
       </li>
 
@@ -67,18 +63,15 @@ import {
               <path d="M13 22l4 3M24 18v5M35 22l-4 3"></path>
             </svg>
           </div>
-          <h3>Estudios de capacidad y viabilidad para carga de vehículos eléctricos</h3>
-          <p>
-            Evaluamos la capacidad disponible y las condiciones técnicas de la instalación antes
-            de definir la solución de carga.
-          </p>
+          <h3>{copy.services[1].title}</h3>
+          <p>{copy.services[1].description}</p>
           <a
             class="mobility-service-card__link"
-            href={WHATSAPP_CAPACITY_STUDY_URL}
+            href={contactLinks.capacityStudy}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Solicitar estudio de capacidad por WhatsApp. Se abre en una nueva pestaña"
-          >Solicitar estudio de capacidad <span aria-hidden="true">→</span></a>
+            aria-label={copy.services[1].aria}
+          >{copy.services[1].cta} <span aria-hidden="true">→</span></a>
         </article>
       </li>
 
@@ -92,31 +85,28 @@ import {
               <path d="M10 24h2M36 24h2M22 31l-2 4h4l-1 4 5-7h-4l1-1"></path>
             </svg>
           </div>
-          <h3>Infraestructura eléctrica para sistemas de carga</h3>
-          <p>
-            Diseñamos y desarrollamos la infraestructura eléctrica necesaria para uno o múltiples
-            puntos de carga.
-          </p>
+          <h3>{copy.services[2].title}</h3>
+          <p>{copy.services[2].description}</p>
           <a
             class="mobility-service-card__link"
-            href={WHATSAPP_INFRASTRUCTURE_URL}
+            href={contactLinks.infrastructure}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Cotizar infraestructura de carga por WhatsApp. Se abre en una nueva pestaña"
-          >Cotizar infraestructura de carga <span aria-hidden="true">→</span></a>
+            aria-label={copy.services[2].aria}
+          >{copy.services[2].cta} <span aria-hidden="true">→</span></a>
         </article>
       </li>
     </ul>
 
-    <div class="mobility-section__related" role="group" aria-label="Servicios relacionados">
+    <div class="mobility-section__related" role="group" aria-label={copy.relatedLabel}>
       <p>
-        ¿Aún no tienes cargador?
-        <a href="#tienda">Conoce nuestros equipos.</a>
+        {copy.relatedProductsQuestion}
+        <a href="#tienda">{copy.relatedProductsLink}</a>
       </p>
       <p>
-        ¿Tu proyecto requiere modificaciones importantes?
+        {copy.relatedEngineeringQuestion}
         <a href="#desarrollo-proyectos-electricos">
-          Conoce nuestros servicios de desarrollo de proyectos eléctricos.
+          {copy.relatedEngineeringLink}
         </a>
       </p>
     </div>
