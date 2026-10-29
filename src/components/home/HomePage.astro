@@ -6,6 +6,7 @@ import { siteContent } from "../../data/siteContent";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/home.css";
 import ContactCTA from "../ContactCTA.astro";
+import LanguageSuggestion from "../LanguageSuggestion.astro";
 import SiteFooter from "../SiteFooter.astro";
 import SiteHeader from "../SiteHeader.astro";
 import EngineeringProjectsSection from "./EngineeringProjectsSection.astro";
@@ -57,6 +58,7 @@ const alternates = [
 
   <a class="skip-link" href="#contenido-principal">{copy.skipLink}</a>
   <SiteHeader {locale} />
+  <LanguageSuggestion {locale} />
 
   <main id="contenido-principal" tabindex="-1">
     <HeroSection {locale} />

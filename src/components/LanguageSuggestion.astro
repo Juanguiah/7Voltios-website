@@ -1,0 +1,49 @@
+---
+import type { Locale } from "../config/i18n";
+import { localeConfig } from "../config/i18n";
+import { siteContent } from "../data/siteContent";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "es" } = Astro.props;
+const suggestedLocale: Locale = locale === "es" ? "en" : "es";
+const copy = siteContent[locale].languageSuggestion;
+const titleId = `language-suggestion-title-${locale}`;
+---
+
+<aside
+  class="language-suggestion"
+  data-language-suggestion
+  data-current-locale={locale}
+  data-suggested-locale={suggestedLocale}
+  data-target-href={localeConfig[suggestedLocale].homePath}
+  aria-labelledby={titleId}
+  aria-live="polite"
+  hidden
+>
+  <div class="language-suggestion__copy" lang={suggestedLocale}>
+    <strong id={titleId}>{copy.title}</strong>
+    <p>{copy.description}</p>
+  </div>
+
+  <div class="language-suggestion__actions" lang={suggestedLocale}>
+    <a
+      class="language-suggestion__action language-suggestion__action--primary"
+      href={localeConfig[suggestedLocale].homePath}
+      hreflang={suggestedLocale === "es" ? "es-CO" : "en"}
+      data-language-choice={suggestedLocale}
+      data-language-suggestion-accept
+    >
+      {copy.switchAction}
+    </a>
+    <button
+      class="language-suggestion__action language-suggestion__action--secondary"
+      type="button"
+      data-language-suggestion-stay
+    >
+      {copy.stayAction}
+    </button>
+  </div>
+</aside>

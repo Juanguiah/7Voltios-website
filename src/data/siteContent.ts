@@ -28,6 +28,12 @@ export const siteContent = {
       closeMenu: "Cerrar menú",
       language: "Idioma",
     },
+    languageSuggestion: {
+      title: "Would you prefer English?",
+      description: "It looks like you may prefer English. You can view 7 VOLTIOS in English.",
+      switchAction: "View in English",
+      stayAction: "Continue in Spanish",
+    },
     hero: {
       eyebrowDesktop: "Soluciones de Movilidad Eléctrica · Desarrollo de Proyectos Eléctricos",
       eyebrowMobile: "Movilidad Eléctrica · Proyectos Eléctricos",
@@ -270,6 +276,12 @@ export const siteContent = {
       openMenu: "Open menu",
       closeMenu: "Close menu",
       language: "Language",
+    },
+    languageSuggestion: {
+      title: "¿Prefieres español?",
+      description: "Parece que prefieres español. Puedes ver 7 VOLTIOS en español.",
+      switchAction: "Ver en español",
+      stayAction: "Continuar en inglés",
     },
     hero: {
       eyebrowDesktop: "Electric Mobility Solutions · Electrical Project Development",
