@@ -3,10 +3,10 @@ import type { Locale } from "../config/i18n";
 export const siteContent = {
   es: {
     meta: {
-      title: "7 VOLTIOS | Movilidad eléctrica y proyectos eléctricos",
+      title: "7 VOLTIOS | Movilidad Eléctrica y Proyectos Eléctricos",
       description:
         "Cargadores, instalación e infraestructura para movilidad eléctrica y desarrollo de proyectos eléctricos con respaldo de ingeniería en Colombia.",
-      socialTitle: "7 VOLTIOS | Movilidad eléctrica y proyectos eléctricos",
+      socialTitle: "7 VOLTIOS | Movilidad Eléctrica y Proyectos Eléctricos",
       socialDescription:
         "Integramos tecnología, productos e ingeniería para desarrollar soluciones de movilidad eléctrica y proyectos eléctricos.",
       imageAlt: "Infraestructura de carga e ingeniería eléctrica de 7 VOLTIOS",
@@ -16,10 +16,10 @@ export const siteContent = {
       primaryLabel: "Navegación principal",
       mobileLabel: "Navegación móvil",
       home: "Inicio",
-      mobility: "Movilidad eléctrica",
-      mobilityAria: "Soluciones de movilidad eléctrica",
-      mobilityMobile: "Soluciones de movilidad eléctrica",
-      engineering: "Desarrollo de proyectos eléctricos",
+      mobility: "Movilidad Eléctrica",
+      mobilityAria: "Soluciones de Movilidad Eléctrica",
+      mobilityMobile: "Soluciones de Movilidad Eléctrica",
+      engineering: "Desarrollo de Proyectos Eléctricos",
       store: "Tienda",
       about: "Nosotros",
       quote: "Cotizar",
@@ -29,8 +29,8 @@ export const siteContent = {
       language: "Idioma",
     },
     hero: {
-      eyebrowDesktop: "Soluciones de movilidad eléctrica · Desarrollo de proyectos eléctricos",
-      eyebrowMobile: "Movilidad eléctrica · Proyectos eléctricos",
+      eyebrowDesktop: "Soluciones de Movilidad Eléctrica · Desarrollo de Proyectos Eléctricos",
+      eyebrowMobile: "Movilidad Eléctrica · Proyectos Eléctricos",
       title: "Cargadores, infraestructura e ingeniería para",
       titleHighlight: "movilidad eléctrica.",
       lead:
@@ -53,13 +53,13 @@ export const siteContent = {
           cta: "Ver productos",
         },
         {
-          category: "Soluciones de movilidad eléctrica",
+          category: "Soluciones de Movilidad Eléctrica",
           title: "¿Necesitas instalar un cargador o desarrollar infraestructura de carga?",
           description: "Instalación, estudios de capacidad y soluciones de infraestructura.",
           cta: "Conocer soluciones",
         },
         {
-          category: "Desarrollo de proyectos eléctricos",
+          category: "Desarrollo de Proyectos Eléctricos",
           title: "¿Necesitas diseñar, diagnosticar, legalizar o ejecutar un proyecto eléctrico?",
           description: "Diseños, RETIE, calidad de energía y desarrollo de proyectos.",
           cta: "Conocer servicios",
@@ -67,7 +67,7 @@ export const siteContent = {
       ],
     },
     products: {
-      eyebrow: "Tienda de movilidad eléctrica",
+      eyebrow: "Tienda de Movilidad Eléctrica",
       title: "Tecnología especializada para cada forma de cargar.",
       intro:
         "Equipos y accesorios para movilidad eléctrica, respaldados por criterio técnico para ayudarte a elegir e integrar la solución adecuada.",
@@ -110,7 +110,7 @@ export const siteContent = {
         "Solicitar una cotización de instalación por WhatsApp. Se abre en una nueva pestaña",
     },
     mobility: {
-      eyebrow: "Soluciones de movilidad eléctrica",
+      eyebrow: "Soluciones de Movilidad Eléctrica",
       title: "Soluciones de carga que empiezan por entender tu infraestructura.",
       intro:
         "Desarrollamos soluciones de carga para hogares, copropiedades, comercios y empresas. Integramos equipos, instalación e ingeniería para cargar de forma segura y confiable.",
@@ -146,7 +146,7 @@ export const siteContent = {
       relatedEngineeringLink: "Conoce nuestros servicios de desarrollo de proyectos eléctricos.",
     },
     engineering: {
-      eyebrow: "Desarrollo de proyectos eléctricos",
+      eyebrow: "Desarrollo de Proyectos Eléctricos",
       title: "Diseñamos y desarrollamos proyectos eléctricos con respaldo técnico.",
       intro:
         "Convertimos las necesidades de una instalación en decisiones de ingeniería, documentación técnica y soluciones preparadas para su desarrollo y legalización.",
@@ -236,8 +236,8 @@ export const siteContent = {
     footer: {
       navigationLabel: "Navegación secundaria",
       store: "Tienda",
-      mobility: "Soluciones de movilidad eléctrica",
-      engineering: "Proyectos eléctricos",
+      mobility: "Soluciones de Movilidad Eléctrica",
+      engineering: "Proyectos Eléctricos",
       about: "Nosotros",
       contact: "Contáctanos",
       rights: "Todos los derechos reservados.",
@@ -246,10 +246,10 @@ export const siteContent = {
   },
   en: {
     meta: {
-      title: "7 VOLTIOS | Electric mobility and electrical projects",
+      title: "7 VOLTIOS | Electric Mobility and Electrical Projects",
       description:
         "EV chargers, installation, charging infrastructure and electrical project development backed by engineering expertise in Colombia.",
-      socialTitle: "7 VOLTIOS | Electric mobility and electrical projects",
+      socialTitle: "7 VOLTIOS | Electric Mobility and Electrical Projects",
       socialDescription:
         "We integrate technology, products and engineering to deliver electric mobility solutions and electrical projects in Colombia.",
       imageAlt: "EV charging infrastructure and electrical engineering by 7 VOLTIOS",
@@ -259,10 +259,10 @@ export const siteContent = {
       primaryLabel: "Main navigation",
       mobileLabel: "Mobile navigation",
       home: "Home",
-      mobility: "Electric mobility",
-      mobilityAria: "Electric mobility solutions",
-      mobilityMobile: "Electric mobility solutions",
-      engineering: "Electrical project development",
+      mobility: "Electric Mobility",
+      mobilityAria: "Electric Mobility Solutions",
+      mobilityMobile: "Electric Mobility Solutions",
+      engineering: "Electrical Project Development",
       store: "Store",
       about: "About us",
       quote: "Get a quote",
@@ -272,8 +272,8 @@ export const siteContent = {
       language: "Language",
     },
     hero: {
-      eyebrowDesktop: "Electric mobility solutions · Electrical project development",
-      eyebrowMobile: "Electric mobility · Electrical projects",
+      eyebrowDesktop: "Electric Mobility Solutions · Electrical Project Development",
+      eyebrowMobile: "Electric Mobility · Electrical Projects",
       title: "EV chargers, infrastructure and engineering for",
       titleHighlight: "electric mobility.",
       lead:
@@ -296,13 +296,13 @@ export const siteContent = {
           cta: "View products",
         },
         {
-          category: "Electric mobility solutions",
+          category: "Electric Mobility Solutions",
           title: "Need to install an EV charger or develop charging infrastructure?",
           description: "Installation, capacity studies and infrastructure solutions.",
           cta: "Explore solutions",
         },
         {
-          category: "Electrical project development",
+          category: "Electrical Project Development",
           title: "Need to design, diagnose, obtain permits for or execute an electrical project?",
           description: "Electrical designs, RETIE, power quality and project development.",
           cta: "Explore services",
@@ -310,7 +310,7 @@ export const siteContent = {
       ],
     },
     products: {
-      eyebrow: "Electric mobility store",
+      eyebrow: "Electric Mobility Store",
       title: "Specialized technology for every charging need.",
       intro:
         "Electric mobility equipment and accessories backed by technical expertise to help you select and integrate the right solution.",
@@ -353,7 +353,7 @@ export const siteContent = {
       installationAria: "Request an installation quote on WhatsApp. Opens in a new tab",
     },
     mobility: {
-      eyebrow: "Electric mobility solutions",
+      eyebrow: "Electric Mobility Solutions",
       title: "Charging solutions that start by understanding your infrastructure.",
       intro:
         "We develop charging solutions for homes, residential communities, commercial properties and companies in Colombia. We integrate equipment, installation and engineering for safe and reliable charging.",
@@ -389,7 +389,7 @@ export const siteContent = {
       relatedEngineeringLink: "Explore our electrical project development services.",
     },
     engineering: {
-      eyebrow: "Electrical project development",
+      eyebrow: "Electrical Project Development",
       title: "We design and develop electrical projects with professional technical support.",
       intro:
         "We turn installation needs into engineering decisions, technical documentation and solutions prepared for execution and permitting in Colombia.",
@@ -479,8 +479,8 @@ export const siteContent = {
     footer: {
       navigationLabel: "Secondary navigation",
       store: "Store",
-      mobility: "Electric mobility solutions",
-      engineering: "Electrical projects",
+      mobility: "Electric Mobility Solutions",
+      engineering: "Electrical Projects",
       about: "About us",
       contact: "Contact",
       rights: "All rights reserved.",
