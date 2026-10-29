@@ -17,6 +17,7 @@ export const siteContent = {
       mobileLabel: "Navegación móvil",
       home: "Inicio",
       mobility: "Movilidad eléctrica",
+      mobilityAria: "Soluciones de movilidad eléctrica",
       mobilityMobile: "Soluciones de movilidad eléctrica",
       engineering: "Desarrollo de proyectos eléctricos",
       store: "Tienda",
@@ -28,7 +29,7 @@ export const siteContent = {
       language: "Idioma",
     },
     hero: {
-      eyebrowDesktop: "Movilidad eléctrica · Desarrollo de proyectos eléctricos",
+      eyebrowDesktop: "Soluciones de movilidad eléctrica · Desarrollo de proyectos eléctricos",
       eyebrowMobile: "Movilidad eléctrica · Proyectos eléctricos",
       title: "Cargadores, infraestructura e ingeniería para",
       titleHighlight: "movilidad eléctrica.",
@@ -52,7 +53,7 @@ export const siteContent = {
           cta: "Ver productos",
         },
         {
-          category: "Movilidad eléctrica",
+          category: "Soluciones de movilidad eléctrica",
           title: "¿Necesitas instalar un cargador o desarrollar infraestructura de carga?",
           description: "Instalación, estudios de capacidad y soluciones de infraestructura.",
           cta: "Conocer soluciones",
@@ -109,7 +110,7 @@ export const siteContent = {
         "Solicitar una cotización de instalación por WhatsApp. Se abre en una nueva pestaña",
     },
     mobility: {
-      eyebrow: "Movilidad eléctrica",
+      eyebrow: "Soluciones de movilidad eléctrica",
       title: "Soluciones de carga que empiezan por entender tu infraestructura.",
       intro:
         "Desarrollamos soluciones de carga para hogares, copropiedades, comercios y empresas. Integramos equipos, instalación e ingeniería para cargar de forma segura y confiable.",
@@ -235,7 +236,7 @@ export const siteContent = {
     footer: {
       navigationLabel: "Navegación secundaria",
       store: "Tienda",
-      mobility: "Movilidad eléctrica",
+      mobility: "Soluciones de movilidad eléctrica",
       engineering: "Proyectos eléctricos",
       about: "Nosotros",
       contact: "Contáctanos",
@@ -259,6 +260,7 @@ export const siteContent = {
       mobileLabel: "Mobile navigation",
       home: "Home",
       mobility: "Electric mobility",
+      mobilityAria: "Electric mobility solutions",
       mobilityMobile: "Electric mobility solutions",
       engineering: "Electrical project development",
       store: "Store",
@@ -270,7 +272,7 @@ export const siteContent = {
       language: "Language",
     },
     hero: {
-      eyebrowDesktop: "Electric mobility · Electrical project development",
+      eyebrowDesktop: "Electric mobility solutions · Electrical project development",
       eyebrowMobile: "Electric mobility · Electrical projects",
       title: "EV chargers, infrastructure and engineering for",
       titleHighlight: "electric mobility.",
@@ -294,7 +296,7 @@ export const siteContent = {
           cta: "View products",
         },
         {
-          category: "Electric mobility",
+          category: "Electric mobility solutions",
           title: "Need to install an EV charger or develop charging infrastructure?",
           description: "Installation, capacity studies and infrastructure solutions.",
           cta: "Explore solutions",
@@ -351,7 +353,7 @@ export const siteContent = {
       installationAria: "Request an installation quote on WhatsApp. Opens in a new tab",
     },
     mobility: {
-      eyebrow: "Electric mobility",
+      eyebrow: "Electric mobility solutions",
       title: "Charging solutions that start by understanding your infrastructure.",
       intro:
         "We develop charging solutions for homes, residential communities, commercial properties and companies in Colombia. We integrate equipment, installation and engineering for safe and reliable charging.",
@@ -477,7 +479,7 @@ export const siteContent = {
     footer: {
       navigationLabel: "Secondary navigation",
       store: "Store",
-      mobility: "Electric mobility",
+      mobility: "Electric mobility solutions",
       engineering: "Electrical projects",
       about: "About us",
       contact: "Contact",

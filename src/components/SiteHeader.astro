@@ -43,7 +43,7 @@ const whatsappHref = Astro.props.whatsappHref ?? contactLinks.quote;
         <span class="nav-home__label">{copy.home}</span>
         <span class="nav-home__tooltip" aria-hidden="true">{copy.home}</span>
       </a>
-      <a href={mobilityHref}>{copy.mobility}</a>
+      <a href={mobilityHref} aria-label={copy.mobilityAria}>{copy.mobility}</a>
       <a href={engineeringHref}>{copy.engineering}</a>
       <a class="nav-store" href={storeHref}>
         <StoreIcon />
