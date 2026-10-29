@@ -96,6 +96,24 @@
   display: none;
 }
 
+.nav-mobility__wide {
+  display: none;
+}
+
+.nav-mobility__compact {
+  display: inline;
+}
+
+@media (min-width: 1440px) {
+  .nav-mobility__wide {
+    display: inline;
+  }
+
+  .nav-mobility__compact {
+    display: none;
+  }
+}
+
 .nav a {
   display: inline-flex;
   min-height: 44px;

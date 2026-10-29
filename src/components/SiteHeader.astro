@@ -43,7 +43,10 @@ const whatsappHref = Astro.props.whatsappHref ?? contactLinks.quote;
         <span class="nav-home__label">{copy.home}</span>
         <span class="nav-home__tooltip" aria-hidden="true">{copy.home}</span>
       </a>
-      <a href={mobilityHref} aria-label={copy.mobilityAria}>{copy.mobility}</a>
+      <a class="nav-mobility" href={mobilityHref} aria-label={copy.mobilityAria}>
+        <span class="nav-mobility__wide">{copy.mobilityAria}</span>
+        <span class="nav-mobility__compact">{copy.mobility}</span>
+      </a>
       <a href={engineeringHref}>{copy.engineering}</a>
       <a class="nav-store" href={storeHref}>
         <StoreIcon />
@@ -62,7 +65,7 @@ const whatsappHref = Astro.props.whatsappHref ?? contactLinks.quote;
         <span>{copy.store}</span>
       </a>
       <a href={homeHref}>{copy.home}</a>
-      <a href={mobilityHref}>{copy.mobilityMobile}</a>
+      <a href={mobilityHref} aria-label={copy.mobilityAria}>{copy.mobilityMobile}</a>
       <a href={engineeringHref}>{copy.engineering}</a>
       <a href={aboutHref}>{copy.about}</a>
       <LanguageSwitcher {locale} variant="mobile" />
