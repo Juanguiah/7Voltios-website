@@ -143,7 +143,15 @@ const contactLinks = getContactLinks(locale);
         target="_blank"
         rel="noopener noreferrer"
         aria-label={copy.installationAria}
-      >{copy.installationPrefix} <BrandName surface="light" /></Button>
+      >
+        <span class="product-categories-section__installation-label">
+          {copy.installationPrefix}
+        </span>
+        <BrandName
+          class="product-categories-section__installation-brand"
+          surface="light"
+        />
+      </Button>
     </div>
   </div>
 </section>

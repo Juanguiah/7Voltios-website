@@ -838,8 +838,20 @@
 }
 
 .product-categories-section__action--secondary.btn-secondary {
+  gap: 0.35em;
   border-color: var(--teal-on-light);
   color: var(--blue);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.product-categories-section__installation-label,
+.product-categories-section__installation-brand {
+  display: inline-block;
+}
+
+.product-categories-section__installation-brand {
+  flex: none;
 }
 
 .engineering-projects-section {
@@ -1170,6 +1182,18 @@
   .product-categories-section__actions .btn,
   .engineering-projects-section__actions .btn {
     width: 100%;
+  }
+
+  .product-categories-section__action--secondary.btn-secondary {
+    flex-direction: column;
+    gap: 2px;
+    padding-inline: 20px;
+    white-space: normal;
+  }
+
+  .product-categories-section__installation-label {
+    max-width: 28rem;
+    text-wrap: balance;
   }
 
   .engineering-service-card__process {
