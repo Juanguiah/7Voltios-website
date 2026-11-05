@@ -43,8 +43,8 @@ const contactHref = Astro.props.contactHref ?? `${defaultHomeHref}#contacto`;
 
     <nav class="footer__nav" aria-label={copy.navigationLabel}>
       <a href={storeHref}>{copy.store}</a>
-      <a href={mobilityHref}>{copy.mobility}</a>
-      <a href={engineeringHref}>{copy.engineering}</a>
+      <a class="footer__nav-service" href={mobilityHref}>{copy.mobility}</a>
+      <a class="footer__nav-service" href={engineeringHref}>{copy.engineering}</a>
       <a href={aboutHref}>{copy.about}</a>
       <a href={contactHref}>{copy.contact}</a>
       <a

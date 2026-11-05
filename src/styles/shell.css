@@ -613,7 +613,17 @@
   }
 
   .footer__nav {
-    gap: 28px;
+    width: min(100%, 380px);
+    gap: 4px 20px;
+  }
+
+  .footer__nav a {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer__nav-service {
+    flex-basis: 100%;
   }
 
   .footer__inner > p {
